@@ -2,7 +2,7 @@
   
   <!-- Background Image (for featured style) -->
   <#if headerStyle == "featured" && backgroundImage?has_content>
-    <div class="bbc-section-header__background" style="background-image: url('${backgroundImage}');">
+    <div class="bbc-section-header__background" style="background-image: url('${backgroundImage!''}');">
       <div class="bbc-section-header__overlay"></div>
     </div>
   </#if>
@@ -44,15 +44,15 @@
           
           <#if sectionDescription?has_content>
             <p class="bbc-section-header__description" data-lfr-editable-id="sectionDescription" data-lfr-editable-type="text">
-              ${sectionDescription}
+              ${sectionDescription!'Section description'}
             </p>
           </#if>
 
           <!-- Last Updated -->
           <#if showLastUpdated && lastUpdated?has_content>
             <div class="bbc-section-header__meta">
-              <time class="bbc-section-header__last-updated" datetime="${lastUpdated}">
-                Last updated: ${lastUpdated}
+              <time class="bbc-section-header__last-updated" datetime="${lastUpdated!''}">
+                Last updated: ${lastUpdated!'Recently'}
               </time>
             </div>
           </#if>
