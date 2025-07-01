@@ -1,10 +1,10 @@
-<div class="bbc-fragment bbc-header" data-bbc-sticky-header="${stickyHeader}">
+<div class="bbc-fragment bbc-header" data-bbc-sticky-header="${stickyHeader!'false'}">
   <div class="bbc-container">
     <div class="bbc-header__content">
       <!-- Logo -->
       <div class="bbc-header__logo">
-        <a href="${logoUrl}" class="bbc-header__logo-link" data-bbc-track-click data-bbc-track-category="header" data-bbc-track-label="logo">
-          <span class="bbc-header__logo-text" data-lfr-editable-id="logoText" data-lfr-editable-type="text">${logoText}</span>
+        <a href="${logoUrl!'/'}" class="bbc-header__logo-link" data-bbc-track-click data-bbc-track-category="header" data-bbc-track-label="logo">
+          <span class="bbc-header__logo-text" data-lfr-editable-id="logoText" data-lfr-editable-type="text">${logoText!'BBC'}</span>
         </a>
       </div>
 

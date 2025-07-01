@@ -3,7 +3,7 @@
     
     <!-- Background Image -->
     <#if backgroundImage?has_content>
-      <div class="bbc-live-content__background" style="background-image: url('${backgroundImage}');">
+      <div class="bbc-live-content__background" <#if backgroundImage?has_content>style="background-image: url('${backgroundImage}');"</#if>>
         <div class="bbc-live-content__overlay"></div>
       </div>
     </#if>
@@ -42,7 +42,7 @@
 
     <!-- Live Content Body -->
     <div class="bbc-live-content__body">
-      <a href="${liveUrl}" class="bbc-live-content__link" data-bbc-track-click data-bbc-track-category="live_content" data-bbc-track-label="live_click">
+      <a href="${liveUrl!'#'}" class="bbc-live-content__link" data-bbc-track-click data-bbc-track-category="live_content" data-bbc-track-label="live_click">
         <h2 class="bbc-headline bbc-headline--medium bbc-live-content__title" data-lfr-editable-id="title" data-lfr-editable-type="text">
           ${title!'Live Content'}
         </h2>
