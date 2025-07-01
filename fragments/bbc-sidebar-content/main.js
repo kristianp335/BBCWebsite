@@ -190,12 +190,8 @@
         function createItemElement(item) {
             const article = document.createElement('article');
             article.className = 'bbc-sidebar-content__item';
-            article.setAttribute('data-bbc-track-view', '');
-            article.setAttribute('data-bbc-track-category', 'sidebar');
-            article.setAttribute('data-bbc-track-label', 'item_view');
 
             article.innerHTML = `
-                <a href="${item.url}" class="bbc-sidebar-content__item-link" data-bbc-track-click data-bbc-track-category="sidebar" data-bbc-track-label="item_click">
                     ${item.image ? `
                         <div class="bbc-sidebar-content__item-image">
                             <img src="${item.image}" alt="${item.title}" loading="lazy" class="bbc-sidebar-content__image">
@@ -399,7 +395,6 @@
         }
 
         // Setup click tracking for all items
-        function setupClickTracking() {
             sidebarContent.addEventListener('click', (e) => {
                 const itemLink = e.target.closest('.bbc-sidebar-content__item-link');
                 
@@ -473,7 +468,6 @@
         setupContentLoading();
         setupLoadMore();
         setupWeatherWidget();
-        setupClickTracking();
         setupAccessibility();
 
         // Store cleanup function

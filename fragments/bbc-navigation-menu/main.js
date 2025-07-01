@@ -355,7 +355,6 @@
         }
 
         // Setup click tracking for all navigation links
-        function setupClickTracking() {
             const allLinks = navMenu.querySelectorAll('a');
             
             allLinks.forEach(link => {
@@ -450,7 +449,6 @@
         setupCurrentPageHighlighting();
         setupStickyNavigation();
         setupKeyboardNavigation();
-        setupClickTracking();
         setupResponsiveBehavior();
 
         // Dispatch initialization event

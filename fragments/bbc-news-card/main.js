@@ -58,7 +58,6 @@
         }
 
         // Enhanced click tracking with engagement metrics
-        function setupClickTracking() {
             if (link) {
                 let mouseDownTime;
                 let isMouseDown = false;
@@ -345,7 +344,6 @@
 
         // Initialize all functionality
         setupLazyLoading();
-        setupClickTracking();
         setupTimeHandling();
         setupKeyboardNavigation();
         setupLiveContent();

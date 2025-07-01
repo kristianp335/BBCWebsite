@@ -53,7 +53,6 @@
         }
 
         // Enhanced click tracking with timing
-        function setupClickTracking() {
             if (link) {
                 let clickStartTime;
                 
@@ -252,7 +251,6 @@
 
         // Initialize all functionality
         setupLazyLoading();
-        setupClickTracking();
         setupKeyboardNavigation();
         setupHoverEffects();
         setupLiveIndicator();

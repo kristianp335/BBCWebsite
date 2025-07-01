@@ -259,7 +259,6 @@
         }
 
         // Enhanced click tracking
-        function setupClickTracking() {
             const links = liveContent.querySelectorAll('a');
             
             links.forEach(link => {
@@ -333,7 +332,6 @@
         setupLiveUpdates();
         setupNotifications();
         setupVisibilityHandling();
-        setupClickTracking();
         setupKeyboardNavigation();
         setupAccessibility();
 

@@ -417,7 +417,6 @@
         }
 
         // Setup view tracking
-        function setupViewTracking() {
             // Track header view
             if (window.BBC && window.BBC.analytics) {
                 window.BBC.analytics.track({
@@ -432,7 +431,6 @@
             if (sectionHeader.classList.contains('bbc-section-header--featured')) {
                 let scrollTracked = false;
                 
-                function trackScroll() {
                     if (!scrollTracked && window.pageYOffset > 100) {
                         scrollTracked = true;
                         
@@ -445,11 +443,9 @@
                             });
                         }
                         
-                        window.removeEventListener('scroll', trackScroll);
                     }
                 }
                 
-                window.addEventListener('scroll', trackScroll);
             }
         }
 
@@ -459,7 +455,6 @@
         setupBreadcrumbs();
         setupKeyboardNavigation();
         setupAccessibility();
-        setupViewTracking();
 
         // Dispatch initialization event
         const event = new CustomEvent('bbcSectionHeaderReady', {

@@ -1,141 +1,141 @@
-<div class="bbc-fragment bbc-video-player bbc-video-player--${playerSize!'medium'}" data-bbc-track-view data-bbc-track-category="video" data-bbc-track-label="player_view">
-  
-  <!-- Video Player Container -->
-  <div class="bbc-video-player__container" data-bbc-video-container>
-    
-    <!-- Video Element -->
-    <video class="bbc-video-player__video" 
-           data-bbc-video
-           <#if posterImage?has_content>poster="${posterImage}"</#if>
-           <#if autoplay>autoplay muted</#if>
-           preload="metadata"
-           playsinline>
-      
-      <#if videoUrl?has_content>
-        <source src="${videoUrl!''}" type="video/mp4">
-      </#if>
-      
-      <#if showCaptions && captionsUrl?has_content>
-        <track kind="captions" src="${captionsUrl!''}" srclang="en" label="English" default>
-      </#if>
-      
-      Your browser does not support the video tag.
-    </video>
+<div class="bbc-fragment bbc-video-player bbc-video-player--${playerSize!'medium'}" >
+ 
+ <!-- Video Player Container -->
+ <div class="bbc-video-player__container" 
+ 
+ <!-- Video Element -->
+ <video class="bbc-video-player__video" 
+ 
+ <#if posterImage?has_content>poster="${posterImage}"</#if>
+ <#if autoplay>autoplay muted</#if>
+ preload="metadata"
+ playsinline>
+ 
+ <#if videoUrl?has_content>
+ <source src="${videoUrl!''}" type="video/mp4">
+ </#if>
+ 
+ <#if showCaptions && captionsUrl?has_content>
+ <track kind="captions" src="${captionsUrl!''}" srclang="en" label="English" default>
+ </#if>
+ 
+ Your browser does not support the video tag.
+ </video>
 
-    <!-- Custom Controls Overlay -->
-    <#if showControls>
-      <div class="bbc-video-player__controls" data-bbc-video-controls>
-        
-        <!-- Play/Pause Button -->
-        <button class="bbc-video-player__play-btn" data-bbc-video-play aria-label="Play video">
-          <svg class="bbc-video-player__play-icon" width="64" height="64" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-          <svg class="bbc-video-player__pause-icon" width="64" height="64" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-          </svg>
-        </button>
+ <!-- Custom Controls Overlay -->
+ <#if showControls>
+ <div class="bbc-video-player__controls" 
+ 
+ <!-- Play/Pause Button -->
+ <button class="bbc-video-player__play-btn" >
+ <svg class="bbc-video-player__play-icon" width="64" height="64" viewBox="0 0 24 24" fill="currentColor">
+ <path d="M8 5v14l11-7z"/>
+ </svg>
+ <svg class="bbc-video-player__pause-icon" width="64" height="64" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+ <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+ </svg>
+ </button>
 
-        <!-- Loading Spinner -->
-        <div class="bbc-video-player__loading" data-bbc-video-loading style="display: none;">
-          <div class="bbc-video-player__spinner"></div>
-        </div>
+ <!-- Loading Spinner -->
+ <div class="bbc-video-player__loading" >
+ <div class="bbc-video-player__spinner"></div>
+ </div>
 
-        <!-- Bottom Controls Bar -->
-        <div class="bbc-video-player__bottom-controls">
-          
-          <!-- Progress Bar -->
-          <div class="bbc-video-player__progress-container" data-bbc-video-progress-container>
-            <div class="bbc-video-player__progress-bar">
-              <div class="bbc-video-player__progress-buffer" data-bbc-video-buffer></div>
-              <div class="bbc-video-player__progress-fill" data-bbc-video-progress></div>
-              <div class="bbc-video-player__progress-handle" data-bbc-video-handle></div>
-            </div>
-          </div>
+ <!-- Bottom Controls Bar -->
+ <div class="bbc-video-player__bottom-controls">
+ 
+ <!-- Progress Bar -->
+ <div class="bbc-video-player__progress-container" 
+ <div class="bbc-video-player__progress-bar">
+ <div class="bbc-video-player__progress-buffer" 
+ <div class="bbc-video-player__progress-fill" 
+ <div class="bbc-video-player__progress-handle" 
+ </div>
+ </div>
 
-          <!-- Control Buttons -->
-          <div class="bbc-video-player__control-buttons">
-            
-            <!-- Time Display -->
-            <div class="bbc-video-player__time">
-              <span class="bbc-video-player__current-time" data-bbc-video-current>0:00</span>
-              <span class="bbc-video-player__time-separator">/</span>
-              <span class="bbc-video-player__total-time" data-bbc-video-duration>${duration!'0:00'}</span>
-            </div>
+ <!-- Control Buttons -->
+ <div class="bbc-video-player__control-buttons">
+ 
+ <!-- Time Display -->
+ <div class="bbc-video-player__time">
+ <span class="bbc-video-player__current-time" 
+ <span class="bbc-video-player__time-separator">/</span>
+ <span class="bbc-video-player__total-time" 
+ </div>
 
-            <!-- Volume Control -->
-            <div class="bbc-video-player__volume-control">
-              <button class="bbc-video-player__volume-btn" data-bbc-video-volume-toggle aria-label="Toggle mute">
-                <svg class="bbc-video-player__volume-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                </svg>
-                <svg class="bbc-video-player__mute-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-                  <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-                </svg>
-              </button>
-              <div class="bbc-video-player__volume-slider" data-bbc-video-volume-slider>
-                <div class="bbc-video-player__volume-bar">
-                  <div class="bbc-video-player__volume-fill" data-bbc-video-volume-fill></div>
-                </div>
-              </div>
-            </div>
+ <!-- Volume Control -->
+ <div class="bbc-video-player__volume-control">
+ <button class="bbc-video-player__volume-btn" >
+ <svg class="bbc-video-player__volume-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+ <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+ </svg>
+ <svg class="bbc-video-player__mute-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+ <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+ </svg>
+ </button>
+ <div class="bbc-video-player__volume-slider" 
+ <div class="bbc-video-player__volume-bar">
+ <div class="bbc-video-player__volume-fill" 
+ </div>
+ </div>
+ </div>
 
-            <!-- Captions Toggle -->
-            <#if showCaptions && captionsUrl?has_content>
-              <button class="bbc-video-player__captions-btn" data-bbc-video-captions-toggle aria-label="Toggle captions">
-                <svg class="bbc-video-player__captions-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/>
-                </svg>
-              </button>
-            </#if>
+ <!-- Captions Toggle -->
+ <#if showCaptions && captionsUrl?has_content>
+ <button class="bbc-video-player__captions-btn" >
+ <svg class="bbc-video-player__captions-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+ <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/>
+ </svg>
+ </button>
+ </#if>
 
-            <!-- Share Button -->
-            <#if showShareButton>
-              <button class="bbc-video-player__share-btn" data-bbc-video-share aria-label="Share video" data-bbc-track-click data-bbc-track-category="video" data-bbc-track-label="share_button">
-                <svg class="bbc-video-player__share-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="18" cy="5" r="3"/>
-                  <circle cx="6" cy="12" r="3"/>
-                  <circle cx="18" cy="19" r="3"/>
-                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-                </svg>
-              </button>
-            </#if>
+ <!-- Share Button -->
+ <#if showShareButton>
+ <button class="bbc-video-player__share-btn" >
+ <svg class="bbc-video-player__share-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+ <circle cx="18" cy="5" r="3"/>
+ <circle cx="6" cy="12" r="3"/>
+ <circle cx="18" cy="19" r="3"/>
+ <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+ <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+ </svg>
+ </button>
+ </#if>
 
-            <!-- Fullscreen Toggle -->
-            <button class="bbc-video-player__fullscreen-btn" data-bbc-video-fullscreen aria-label="Toggle fullscreen">
-              <svg class="bbc-video-player__fullscreen-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-              </svg>
-              <svg class="bbc-video-player__fullscreen-exit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-                <path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </#if>
-  </div>
+ <!-- Fullscreen Toggle -->
+ <button class="bbc-video-player__fullscreen-btn" >
+ <svg class="bbc-video-player__fullscreen-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+ <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+ </svg>
+ <svg class="bbc-video-player__fullscreen-exit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+ <path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>
+ </svg>
+ </button>
+ </div>
+ </div>
+ </div>
+ </#if>
+ </div>
 
-  <!-- Video Information -->
-  <div class="bbc-video-player__info">
-    
-    <!-- Video Meta -->
-    <div class="bbc-video-player__meta">
-      <span class="bbc-label bbc-video-player__category" data-lfr-editable-id="category" data-lfr-editable-type="text">Video</span>
-      <span class="bbc-video-player__duration" data-lfr-editable-id="duration" data-lfr-editable-type="text">5:32</span>
-      <time class="bbc-video-player__date" data-lfr-editable-id="publishDate" data-lfr-editable-type="text">2 hours ago</time>
-    </div>
+ <!-- Video Information -->
+ <div class="bbc-video-player__info">
+ 
+ <!-- Video Meta -->
+ <div class="bbc-video-player__meta">
+ <span class="bbc-label bbc-video-player__category" data-lfr-editable-id="category" data-lfr-editable-type="text">Video</span>
+ <span class="bbc-video-player__duration" data-lfr-editable-id="duration" data-lfr-editable-type="text">5:32</span>
+ <time class="bbc-video-player__date" data-lfr-editable-id="publishDate" data-lfr-editable-type="text">2 hours ago</time>
+ </div>
 
-    <!-- Video Title -->
-    <h2 class="bbc-video-player__title" data-lfr-editable-id="videoTitle" data-lfr-editable-type="text">
-      Video Title
-    </h2>
+ <!-- Video Title -->
+ <h2 class="bbc-video-player__title" data-lfr-editable-id="videoTitle" data-lfr-editable-type="text">
+ Video Title
+ </h2>
 
-    <!-- Video Description -->
-    <p class="bbc-video-player__description" data-lfr-editable-id="videoDescription" data-lfr-editable-type="text">
-      Video description goes here. This content can be edited directly in the page editor.
-    </p>
-  </div>
+ <!-- Video Description -->
+ <p class="bbc-video-player__description" data-lfr-editable-id="videoDescription" data-lfr-editable-type="text">
+ Video description goes here. This content can be edited directly in the page editor.
+ </p>
+ </div>
 </div>
 

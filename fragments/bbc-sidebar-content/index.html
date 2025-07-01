@@ -1,130 +1,130 @@
-<aside class="bbc-fragment bbc-sidebar-content" role="complementary" data-bbc-track-view data-bbc-track-category="sidebar" data-bbc-track-label="sidebar_view">
-  <div class="bbc-sidebar-content__container">
-    
-    <!-- Sidebar Header -->
-    <header class="bbc-sidebar-content__header">
-      <h2 class="bbc-sidebar-content__title">${sidebarTitle!'More from BBC'}</h2>
-      
-      <#if contentType != "custom_content">
-        <div class="bbc-sidebar-content__type-indicator">
-          <span class="bbc-label">
-            <#switch contentType>
-              <#case "related_articles">Related<#break>
-              <#case "trending">Trending<#break>
-              <#case "most_read">Most Read<#break>
-              <#case "latest_news">Latest<#break>
-              <#case "weather_widget">Weather<#break>
-              <#default>Content
-            </#switch>
-          </span>
-        </div>
-      </#if>
-    </header>
+<aside class="bbc-fragment bbc-sidebar-content" role="complementary" >
+ <div class="bbc-sidebar-content__container">
+ 
+ <!-- Sidebar Header -->
+ <header class="bbc-sidebar-content__header">
+ <h2 class="bbc-sidebar-content__title">${sidebarTitle!'More from BBC'}</h2>
+ 
+ <#if contentType != "custom_content">
+ <div class="bbc-sidebar-content__type-indicator">
+ <span class="bbc-label">
+ <#switch contentType>
+ <#case "related_articles">Related<#break>
+ <#case "trending">Trending<#break>
+ <#case "most_read">Most Read<#break>
+ <#case "latest_news">Latest<#break>
+ <#case "weather_widget">Weather<#break>
+ <#default>Content
+ </#switch>
+ </span>
+ </div>
+ </#if>
+ </header>
 
-    <!-- Content Items -->
-    <div class="bbc-sidebar-content__items" data-bbc-sidebar-items>
-      <#if contentItems?has_content>
-        <#assign items = contentItems?eval>
-        <#assign itemLimit = (maxItems!'5')?number>
-        <#list items as item>
-          <#if item_index < itemLimit>
-            <article class="bbc-sidebar-content__item" data-bbc-track-view data-bbc-track-category="sidebar" data-bbc-track-label="item_view">
-              <a href="${item.url}" class="bbc-sidebar-content__item-link" data-bbc-track-click data-bbc-track-category="sidebar" data-bbc-track-label="item_click">
-                
-                <!-- Item Image -->
-                <#if showImages && item.image?has_content>
-                  <div class="bbc-sidebar-content__item-image">
-                    <img src="${item.image}" alt="${item.title}" loading="lazy" class="bbc-sidebar-content__image">
-                  </div>
-                </#if>
+ <!-- Content Items -->
+ <div class="bbc-sidebar-content__items" 
+ <#if contentItems?has_content>
+ <#assign items = contentItems?eval>
+ <#assign itemLimit = (maxItems!'5')?number>
+ <#list items as item>
+ <#if item_index < itemLimit>
+ <article class="bbc-sidebar-content__item" >
+ <a href="${item.url}" class="bbc-sidebar-content__item-link" >
+ 
+ <!-- Item Image -->
+ <#if showImages && item.image?has_content>
+ <div class="bbc-sidebar-content__item-image">
+ <img src="${item.image}" alt="${item.title}" loading="lazy" class="bbc-sidebar-content__image">
+ </div>
+ </#if>
 
-                <!-- Item Content -->
-                <div class="bbc-sidebar-content__item-content">
-                  
-                  <!-- Item Meta -->
-                  <#if (showCategories && item.category?has_content) || (showTimestamps && item.time?has_content)>
-                    <div class="bbc-sidebar-content__item-meta">
-                      <#if showCategories && item.category?has_content>
-                        <span class="bbc-label bbc-sidebar-content__category">${item.category}</span>
-                      </#if>
-                      <#if showTimestamps && item.time?has_content>
-                        <time class="bbc-sidebar-content__time">${item.time}</time>
-                      </#if>
-                    </div>
-                  </#if>
+ <!-- Item Content -->
+ <div class="bbc-sidebar-content__item-content">
+ 
+ <!-- Item Meta -->
+ <#if (showCategories && item.category?has_content) || (showTimestamps && item.time?has_content)>
+ <div class="bbc-sidebar-content__item-meta">
+ <#if showCategories && item.category?has_content>
+ <span class="bbc-label bbc-sidebar-content__category">${item.category}</span>
+ </#if>
+ <#if showTimestamps && item.time?has_content>
+ <time class="bbc-sidebar-content__time">${item.time}</time>
+ </#if>
+ </div>
+ </#if>
 
-                  <!-- Item Title -->
-                  <h3 class="bbc-sidebar-content__item-title">
-                    ${item.title!'Article Title'}
-                  </h3>
+ <!-- Item Title -->
+ <h3 class="bbc-sidebar-content__item-title">
+ ${item.title!'Article Title'}
+ </h3>
 
-                  <!-- Item Description -->
-                  <#if item.description?has_content>
-                    <p class="bbc-sidebar-content__item-description">
-                      ${item.description}
-                    </p>
-                  </#if>
-                </div>
-              </a>
-            </article>
-          </#if>
-        </#list>
-      </#if>
+ <!-- Item Description -->
+ <#if item.description?has_content>
+ <p class="bbc-sidebar-content__item-description">
+ ${item.description}
+ </p>
+ </#if>
+ </div>
+ </a>
+ </article>
+ </#if>
+ </#list>
+ </#if>
 
-      <!-- Loading placeholder -->
-      <div class="bbc-sidebar-content__loading" style="display: none;">
-        <div class="bbc-sidebar-content__loading-item">
-          <div class="bbc-sidebar-content__loading-image"></div>
-          <div class="bbc-sidebar-content__loading-content">
-            <div class="bbc-sidebar-content__loading-title"></div>
-            <div class="bbc-sidebar-content__loading-meta"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+ <!-- Loading placeholder -->
+ <div class="bbc-sidebar-content__loading" style="display: none;">
+ <div class="bbc-sidebar-content__loading-item">
+ <div class="bbc-sidebar-content__loading-image"></div>
+ <div class="bbc-sidebar-content__loading-content">
+ <div class="bbc-sidebar-content__loading-title"></div>
+ <div class="bbc-sidebar-content__loading-meta"></div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <!-- Load More Button -->
-    <#if enableLoadMore>
-      <div class="bbc-sidebar-content__actions">
-        <button class="bbc-button bbc-sidebar-content__load-more" data-bbc-load-more data-bbc-track-click data-bbc-track-category="sidebar" data-bbc-track-label="load_more">
-          Load More
-          <svg class="bbc-sidebar-content__load-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"/>
-          </svg>
-        </button>
-      </div>
-    </#if>
+ <!-- Load More Button -->
+ <#if enableLoadMore>
+ <div class="bbc-sidebar-content__actions">
+ <button class="bbc-button bbc-sidebar-content__load-more" 
+ Load More
+ <svg class="bbc-sidebar-content__load-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+ <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"/>
+ </svg>
+ </button>
+ </div>
+ </#if>
 
-    <!-- Weather Widget (if content type is weather) -->
-    <#if contentType == "weather_widget">
-      <div class="bbc-sidebar-content__weather-widget" data-bbc-weather-widget>
-        <div class="bbc-weather-widget">
-          <div class="bbc-weather-widget__header">
-            <h3 class="bbc-weather-widget__title">Weather</h3>
-            <button class="bbc-weather-widget__location-btn" data-bbc-weather-location aria-label="Change location">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-              London
-            </button>
-          </div>
-          <div class="bbc-weather-widget__current">
-            <div class="bbc-weather-widget__temp">22°C</div>
-            <div class="bbc-weather-widget__condition">Partly Cloudy</div>
-          </div>
-          <div class="bbc-weather-widget__forecast">
-            <div class="bbc-weather-widget__day">
-              <span class="bbc-weather-widget__day-name">Today</span>
-              <span class="bbc-weather-widget__day-temp">24° / 16°</span>
-            </div>
-            <div class="bbc-weather-widget__day">
-              <span class="bbc-weather-widget__day-name">Tomorrow</span>
-              <span class="bbc-weather-widget__day-temp">26° / 18°</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </#if>
-  </div>
+ <!-- Weather Widget (if content type is weather) -->
+ <#if contentType == "weather_widget">
+ <div class="bbc-sidebar-content__weather-widget" 
+ <div class="bbc-weather-widget">
+ <div class="bbc-weather-widget__header">
+ <h3 class="bbc-weather-widget__title">Weather</h3>
+ <button class="bbc-weather-widget__location-btn" >
+ <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+ <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+ </svg>
+ London
+ </button>
+ </div>
+ <div class="bbc-weather-widget__current">
+ <div class="bbc-weather-widget__temp">22°C</div>
+ <div class="bbc-weather-widget__condition">Partly Cloudy</div>
+ </div>
+ <div class="bbc-weather-widget__forecast">
+ <div class="bbc-weather-widget__day">
+ <span class="bbc-weather-widget__day-name">Today</span>
+ <span class="bbc-weather-widget__day-temp">24° / 16°</span>
+ </div>
+ <div class="bbc-weather-widget__day">
+ <span class="bbc-weather-widget__day-name">Tomorrow</span>
+ <span class="bbc-weather-widget__day-temp">26° / 18°</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </#if>
+ </div>
 </aside>
 
