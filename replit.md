@@ -128,6 +128,11 @@ Components integrate with CMS platforms through:
   - Kept only styling/layout configuration options (card size, text position, show/hide features)
   - All content (text, images, links) now uses data-lfr-editable-type attributes for direct editing
   - Updated deployment packages with cleaned configurations
+- July 01, 2025. Fixed Liferay configuration schema errors:
+  - Corrected configuration.json files to use proper Liferay schema (only fieldSets structure)
+  - Removed extraneous metadata fields (fragmentEntryKey, name, description, type, thumbnail)
+  - Fixed "required key [fieldSets] not found" and "extraneous key" errors
+  - Updated all deployment packages with corrected configurations
 
 ## User Preferences
 

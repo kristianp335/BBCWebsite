@@ -1,22 +1,15 @@
 {
-  "fragmentEntryKey": "bbc-footer",
-  "name": "BBC Footer",
-  "description": "BBC-inspired footer fragment with links and social media",
-  "type": "component",
-  "thumbnail": "",
-  "configuration": {
-    "fieldSets": [
-      {
-        "fields": [
-          {
-            "name": "showSocialLinks",
-            "label": "Show Social Links",
-            "description": "Display social media links",
-            "type": "checkbox",
-            "defaultValue": true
-          }
-        ]
-      }
-    ]
-  }
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showSocialLinks",
+          "label": "Show Social Links",
+          "description": "Display social media links",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }

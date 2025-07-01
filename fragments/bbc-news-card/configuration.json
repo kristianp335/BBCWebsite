@@ -1,50 +1,42 @@
 {
-  "fragmentEntryKey": "bbc-news-card",
-  "name": "BBC News Card",
-  "description": "BBC-inspired news card fragment for article display with image, headline, and metadata",
-  "type": "component",
-  "thumbnail": "",
-  "configuration": {
-    "fieldSets": [
-      {
-        "fields": [
-          {
-            "name": "isLive",
-            "label": "Live Content",
-            "description": "Mark as live content",
-            "type": "checkbox",
-            "defaultValue": false
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "isLive",
+          "label": "Live Content",
+          "description": "Mark as live content",
+          "type": "checkbox",
+          "defaultValue": false
+        },
+        {
+          "name": "cardSize",
+          "label": "Card Size",
+          "description": "Size of the news card",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {"value": "small", "label": "Small"},
+              {"value": "medium", "label": "Medium"},
+              {"value": "large", "label": "Large"}
+            ]
           },
-          {
-            "name": "cardSize",
-            "label": "Card Size",
-            "description": "Size variant of the card",
-            "type": "select",
-            "typeOptions": {
-              "validValues": [
-                {"value": "small", "label": "Small"},
-                {"value": "medium", "label": "Medium"},
-                {"value": "large", "label": "Large"}
-              ]
-            },
-            "defaultValue": "medium"
+          "defaultValue": "medium"
+        },
+        {
+          "name": "layout",
+          "label": "Layout",
+          "description": "Card layout orientation",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {"value": "vertical", "label": "Vertical"},
+              {"value": "horizontal", "label": "Horizontal"}
+            ]
           },
-          {
-            "name": "layout",
-            "label": "Layout",
-            "description": "Card layout style",
-            "type": "select",
-            "typeOptions": {
-              "validValues": [
-                {"value": "vertical", "label": "Vertical (Image on top)"},
-                {"value": "horizontal", "label": "Horizontal (Image on side)"},
-                {"value": "overlay", "label": "Overlay (Text over image)"}
-              ]
-            },
-            "defaultValue": "vertical"
-          }
-        ]
-      }
-    ]
-  }
+          "defaultValue": "vertical"
+        }
+      ]
+    }
+  ]
 }

@@ -1,36 +1,29 @@
 {
-  "fragmentEntryKey": "bbc-sidebar-content",
-  "name": "BBC Sidebar Content",
-  "description": "BBC-inspired sidebar content fragment for related content and widgets",
-  "type": "component",
-  "thumbnail": "",
-  "configuration": {
-    "fieldSets": [
-      {
-        "fields": [
-          {
-            "name": "contentType",
-            "label": "Content Type",
-            "description": "Type of sidebar content to display",
-            "type": "select",
-            "typeOptions": {
-              "validValues": [
-                {"value": "related", "label": "Related Stories"},
-                {"value": "trending", "label": "Trending"},
-                {"value": "weather", "label": "Weather Widget"}
-              ]
-            },
-            "defaultValue": "related"
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "contentType",
+          "label": "Content Type",
+          "description": "Type of sidebar content to display",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {"value": "related", "label": "Related Stories"},
+              {"value": "trending", "label": "Trending"},
+              {"value": "weather", "label": "Weather Widget"}
+            ]
           },
-          {
-            "name": "showImages",
-            "label": "Show Images",
-            "description": "Display images with content items",
-            "type": "checkbox",
-            "defaultValue": true
-          }
-        ]
-      }
-    ]
-  }
+          "defaultValue": "related"
+        },
+        {
+          "name": "showImages",
+          "label": "Show Images",
+          "description": "Display images with content items",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }

@@ -1,29 +1,22 @@
 {
-  "fragmentEntryKey": "bbc-video-player",
-  "name": "BBC Video Player",
-  "description": "BBC-inspired video player fragment with custom controls and analytics",
-  "type": "component",
-  "thumbnail": "",
-  "configuration": {
-    "fieldSets": [
-      {
-        "fields": [
-          {
-            "name": "showCaptions",
-            "label": "Show Captions",
-            "description": "Enable caption support",
-            "type": "checkbox",
-            "defaultValue": true
-          },
-          {
-            "name": "autoPlay",
-            "label": "Auto Play",
-            "description": "Auto play video on load",
-            "type": "checkbox",
-            "defaultValue": false
-          }
-        ]
-      }
-    ]
-  }
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showCaptions",
+          "label": "Show Captions",
+          "description": "Enable caption support",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "autoPlay",
+          "label": "Auto Play",
+          "description": "Auto play video on load",
+          "type": "checkbox",
+          "defaultValue": false
+        }
+      ]
+    }
+  ]
 }

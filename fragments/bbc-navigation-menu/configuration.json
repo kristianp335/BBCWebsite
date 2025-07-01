@@ -1,35 +1,28 @@
 {
-  "fragmentEntryKey": "bbc-navigation-menu",
-  "name": "BBC Navigation Menu",
-  "description": "BBC-inspired navigation menu fragment with dropdown support",
-  "type": "component",
-  "thumbnail": "",
-  "configuration": {
-    "fieldSets": [
-      {
-        "fields": [
-          {
-            "name": "layout",
-            "label": "Layout",
-            "description": "Menu layout style",
-            "type": "select",
-            "typeOptions": {
-              "validValues": [
-                {"value": "horizontal", "label": "Horizontal"},
-                {"value": "vertical", "label": "Vertical"}
-              ]
-            },
-            "defaultValue": "horizontal"
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "layout",
+          "label": "Layout",
+          "description": "Menu layout style",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {"value": "horizontal", "label": "Horizontal"},
+              {"value": "vertical", "label": "Vertical"}
+            ]
           },
-          {
-            "name": "showIcons",
-            "label": "Show Icons",
-            "description": "Display icons in menu items",
-            "type": "checkbox",
-            "defaultValue": true
-          }
-        ]
-      }
-    ]
-  }
+          "defaultValue": "horizontal"
+        },
+        {
+          "name": "showIcons",
+          "label": "Show Icons",
+          "description": "Display icons in menu items",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }

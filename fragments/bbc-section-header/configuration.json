@@ -1,36 +1,29 @@
 {
-  "fragmentEntryKey": "bbc-section-header",
-  "name": "BBC Section Header",
-  "description": "BBC-inspired section header fragment with breadcrumbs and actions",
-  "type": "component",
-  "thumbnail": "",
-  "configuration": {
-    "fieldSets": [
-      {
-        "fields": [
-          {
-            "name": "headerStyle",
-            "label": "Header Style",
-            "description": "Visual style of the header",
-            "type": "select",
-            "typeOptions": {
-              "validValues": [
-                {"value": "default", "label": "Default"},
-                {"value": "featured", "label": "Featured"},
-                {"value": "minimal", "label": "Minimal"}
-              ]
-            },
-            "defaultValue": "default"
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "headerStyle",
+          "label": "Header Style",
+          "description": "Visual style of the header",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {"value": "default", "label": "Default"},
+              {"value": "featured", "label": "Featured"},
+              {"value": "minimal", "label": "Minimal"}
+            ]
           },
-          {
-            "name": "showLastUpdated",
-            "label": "Show Last Updated",
-            "description": "Display last updated timestamp",
-            "type": "checkbox",
-            "defaultValue": true
-          }
-        ]
-      }
-    ]
-  }
+          "defaultValue": "default"
+        },
+        {
+          "name": "showLastUpdated",
+          "label": "Show Last Updated",
+          "description": "Display last updated timestamp",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }

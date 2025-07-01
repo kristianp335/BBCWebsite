@@ -1,29 +1,22 @@
 {
-  "fragmentEntryKey": "bbc-live-content",
-  "name": "BBC Live Content",
-  "description": "BBC-inspired live content fragment with real-time updates",
-  "type": "component",
-  "thumbnail": "",
-  "configuration": {
-    "fieldSets": [
-      {
-        "fields": [
-          {
-            "name": "enableNotifications",
-            "label": "Enable Notifications",
-            "description": "Allow push notifications for live updates",
-            "type": "checkbox",
-            "defaultValue": false
-          },
-          {
-            "name": "showViewerCount",
-            "label": "Show Viewer Count",
-            "description": "Display live viewer count",
-            "type": "checkbox",
-            "defaultValue": true
-          }
-        ]
-      }
-    ]
-  }
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "enableNotifications",
+          "label": "Enable Notifications",
+          "description": "Allow push notifications for live updates",
+          "type": "checkbox",
+          "defaultValue": false
+        },
+        {
+          "name": "showViewerCount",
+          "label": "Show Viewer Count",
+          "description": "Display live viewer count",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }

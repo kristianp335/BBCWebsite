@@ -1,29 +1,22 @@
 {
-  "fragmentEntryKey": "bbc-podcast-card",
-  "name": "BBC Podcast Card",
-  "description": "BBC-inspired podcast card fragment with audio player and episode details",
-  "type": "component",
-  "thumbnail": "",
-  "configuration": {
-    "fieldSets": [
-      {
-        "fields": [
-          {
-            "name": "showSaveButton",
-            "label": "Show Save Button",
-            "description": "Display save episode button",
-            "type": "checkbox",
-            "defaultValue": true
-          },
-          {
-            "name": "showShareButton",
-            "label": "Show Share Button",
-            "description": "Display share episode button",
-            "type": "checkbox",
-            "defaultValue": true
-          }
-        ]
-      }
-    ]
-  }
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showSaveButton",
+          "label": "Show Save Button",
+          "description": "Display save episode button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showShareButton",
+          "label": "Show Share Button",
+          "description": "Display share episode button",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }
