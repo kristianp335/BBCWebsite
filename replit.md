@@ -148,6 +148,10 @@ Components integrate with CMS platforms through:
   - Updated CSS selectors to target div elements instead of article elements
   - Fixed JavaScript references to remove article-specific code
   - Created clean deployment packages without article elements
+- July 01, 2025. Updated client extension configurations:
+  - Changed BBC Main Styles from themeCSS to globalCSS type
+  - Added assemble property to both client extensions for proper Liferay deployment
+  - Updated deployment packages with corrected client extension configurations
 
 ## User Preferences
 

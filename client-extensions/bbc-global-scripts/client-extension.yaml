@@ -1,6 +1,10 @@
-name: BBC Global Scripts
-type: themeJS
-description: Global JavaScript functionality for BBC-inspired Liferay fragments including navigation interactions, search functionality, and analytics tracking
+assemble:
+  - from: src
+    include: "*.js"
+    into: static
 
-# Client extension metadata
-dxp.lxc.liferay.com.mainContext: /o/bbc-global-scripts
+bbc-global-scripts:
+  name: BBC Global Scripts
+  type: globalJS
+  description: Global JavaScript functionality for BBC-inspired Liferay fragments including navigation interactions, search functionality, and analytics tracking
+  assemble: true
