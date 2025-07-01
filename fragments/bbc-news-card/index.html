@@ -5,7 +5,7 @@
     <#if imageUrl?has_content>
       <div class="bbc-news-card__image-container">
         <img 
-          src="${imageUrl}" 
+          src="${imageUrl!''}" 
           alt="${imageAlt!'Article image'}" 
           class="bbc-news-card__image"
           loading="lazy"
@@ -32,8 +32,8 @@
           <span class="bbc-label bbc-news-card__category" data-lfr-editable-id="category" data-lfr-editable-type="text">${category}</span>
         </#if>
         <#if publishTime?has_content>
-          <time class="bbc-news-card__time" datetime="${publishTime}">
-            ${publishTime}
+          <time class="bbc-news-card__time" datetime="${publishTime!''}">
+            ${publishTime!'Now'}
           </time>
         </#if>
       </div>
