@@ -46,7 +46,7 @@
       <!-- Description -->
       <#if description?has_content>
         <p class="bbc-body-text bbc-news-card__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
-          ${description}
+          ${description!'Article description'}
         </p>
       </#if>
 

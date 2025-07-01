@@ -7,7 +7,7 @@
     <div class="bbc-podcast-card__media">
       <div class="bbc-podcast-card__cover">
         <#if coverImage?has_content>
-          <img src="${coverImage}" alt="${podcastTitle} cover" class="bbc-podcast-card__cover-image" loading="lazy">
+          <img src="${coverImage!''}" alt="${podcastTitle!'Podcast'} cover" class="bbc-podcast-card__cover-image" loading="lazy">
         <#else>
           <div class="bbc-podcast-card__cover-placeholder">
             <svg class="bbc-podcast-card__cover-icon" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
@@ -54,7 +54,7 @@
           <span class="bbc-podcast-card__duration">${duration!'00:00'}</span>
         </#if>
         <#if publishDate?has_content>
-          <time class="bbc-podcast-card__date" datetime="${publishDate}">
+          <time class="bbc-podcast-card__date" datetime="${publishDate!''}">
             <#-- Format date using JavaScript or show relative time -->
             ${publishDate!'Today'}
           </time>
@@ -109,7 +109,7 @@
   <!-- Hidden Audio Element -->
   <#if audioUrl?has_content>
     <audio class="bbc-podcast-card__audio" data-bbc-audio preload="none">
-      <source src="${audioUrl}" type="audio/mpeg">
+      <source src="${audioUrl!''}" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
   </#if>

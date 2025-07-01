@@ -12,11 +12,11 @@
            playsinline>
       
       <#if videoUrl?has_content>
-        <source src="${videoUrl}" type="video/mp4">
+        <source src="${videoUrl!''}" type="video/mp4">
       </#if>
       
       <#if showCaptions && captionsUrl?has_content>
-        <track kind="captions" src="${captionsUrl}" srclang="en" label="English" default>
+        <track kind="captions" src="${captionsUrl!''}" srclang="en" label="English" default>
       </#if>
       
       Your browser does not support the video tag.
@@ -123,14 +123,14 @@
     <!-- Video Meta -->
     <div class="bbc-video-player__meta">
       <#if category?has_content>
-        <span class="bbc-label bbc-video-player__category" data-lfr-editable-id="category" data-lfr-editable-type="text">${category}</span>
+        <span class="bbc-label bbc-video-player__category" data-lfr-editable-id="category" data-lfr-editable-type="text">${category!'Video'}</span>
       </#if>
       <#if duration?has_content>
-        <span class="bbc-video-player__duration">${duration}</span>
+        <span class="bbc-video-player__duration">${duration!'00:00'}</span>
       </#if>
       <#if publishDate?has_content>
-        <time class="bbc-video-player__date" datetime="${publishDate}">
-          ${publishDate}
+        <time class="bbc-video-player__date" datetime="${publishDate!''}">
+          ${publishDate!'Today'}
         </time>
       </#if>
     </div>
@@ -143,7 +143,7 @@
     <!-- Video Description -->
     <#if videoDescription?has_content>
       <p class="bbc-video-player__description" data-lfr-editable-id="videoDescription" data-lfr-editable-type="text">
-        ${videoDescription}
+        ${videoDescription!'Video description'}
       </p>
     </#if>
   </div>
