@@ -1,22 +1,17 @@
-<div class="bbc-fragment bbc-video-player bbc-video-player--${playerSize!'medium'}" >
+<div class="bbc-fragment bbc-video-player bbc-video-player--" >
  <!-- Video Player Container -->
  <div class="bbc-video-player__container" 
  <!-- Video Element -->
  <video class="bbc-video-player__video" 
- <#if posterImage?has_content>poster="${posterImage}"</#if>
- <#if autoplay>autoplay muted</#if>
+ poster=""
+ autoplay muted
  preload="metadata"
  playsinline>
- <#if videoUrl?has_content>
- <source src="${videoUrl!''}" type="video/mp4">
- </#if>
- <#if showCaptions && captionsUrl?has_content>
- <track kind="captions" src="${captionsUrl!''}" srclang="en" label="English" default>
- </#if>
+ <source src="" type="video/mp4">
+ <track kind="captions" src="" srclang="en" label="English" default>
  Your browser does not support the video tag.
  </video>
  <!-- Custom Controls Overlay -->
- <#if showControls>
  <div class="bbc-video-player__controls" 
  <!-- Play/Pause Button -->
  <button class="bbc-video-player__play-btn" >
@@ -66,15 +61,12 @@
  </div>
  </div>
  <!-- Captions Toggle -->
- <#if showCaptions && captionsUrl?has_content>
  <button class="bbc-video-player__captions-btn" >
  <svg class="bbc-video-player__captions-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
  <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1v1z"/>
  </svg>
  </button>
- </#if>
  <!-- Share Button -->
- <#if showShareButton>
  <button class="bbc-video-player__share-btn" >
  <svg class="bbc-video-player__share-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
  <circle cx="18" cy="5" r="3"/>
@@ -84,7 +76,6 @@
  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
  </svg>
  </button>
- </#if>
  <!-- Fullscreen Toggle -->
  <button class="bbc-video-player__fullscreen-btn" >
  <svg class="bbc-video-player__fullscreen-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -97,7 +88,6 @@
  </div>
  </div>
  </div>
- </#if>
  </div>
  <!-- Video Information -->
  <div class="bbc-video-player__info">

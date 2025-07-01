@@ -1,22 +1,3 @@
 {
-  "fieldSets": [
-    {
-      "fields": [
-        {
-          "name": "showSaveButton",
-          "label": "Show Save Button",
-          "description": "Display save episode button",
-          "type": "checkbox",
-          "defaultValue": true
-        },
-        {
-          "name": "showShareButton",
-          "label": "Show Share Button",
-          "description": "Display share episode button",
-          "type": "checkbox",
-          "defaultValue": true
-        }
-      ]
-    }
-  ]
+  "fieldSets": []
 }

@@ -3,27 +3,23 @@
  <div class="bbc-header__content">
  <!-- Logo -->
  <div class="bbc-header__logo">
- <a href="${logoUrl!'/'}" class="bbc-header__logo-link" >
- <span class="bbc-header__logo-text" data-lfr-editable-id="logoText" data-lfr-editable-type="text">${logoText!'BBC'}</span>
+ <a href="" class="bbc-header__logo-link" >
+ <span class="bbc-header__logo-text" data-lfr-editable-id="logoText" data-lfr-editable-type="text"></span>
  </a>
  </div>
  <!-- Main Navigation -->
  <nav class="bbc-header__nav" role="navigation" aria-label="Main navigation">
  <ul class="bbc-nav bbc-header__nav-list">
- <#if navigationItems?has_content>
  <#assign navItems = navigationItems?eval>
  <#list navItems as item>
  <li class="bbc-nav__item">
- <a href="${item.url}" class="bbc-nav__link" >
- ${item.label}
+ <a href="" class="bbc-nav__link" >
  </a>
  </li>
  </#list>
- </#if>
  </ul>
  </nav>
  <!-- Search -->
- <#if showSearch>
  <div class="bbc-header__search">
  <form class="bbc-search-form" aria-label="Site search">
  <div class="bbc-search-form__input-group">
@@ -45,7 +41,6 @@
  </div>
  </form>
  </div>
- </#if>
  <!-- Mobile Menu Toggle -->
  <button 
  class="bbc-header__mobile-toggle" 
@@ -61,16 +56,13 @@
  <!-- Mobile Navigation -->
  <nav id="bbc-mobile-menu" class="bbc-mobile-menu" aria-label="Mobile navigation">
  <ul class="bbc-mobile-menu__list">
- <#if navigationItems?has_content>
  <#assign navItems = navigationItems?eval>
  <#list navItems as item>
  <li class="bbc-mobile-menu__item">
- <a href="${item.url}" class="bbc-mobile-menu__link" >
- ${item.label}
+ <a href="" class="bbc-mobile-menu__link" >
  </a>
  </li>
  </#list>
- </#if>
  </ul>
  </nav>
  </div>

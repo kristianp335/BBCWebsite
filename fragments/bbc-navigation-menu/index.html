@@ -1,12 +1,11 @@
-<nav class="bbc-fragment bbc-navigation-menu bbc-navigation-menu--${layout!'horizontal'}" 
- <#if stickyNavigation>
+<nav class="bbc-fragment bbc-navigation-menu bbc-navigation-menu--" 
  role="navigation" 
- aria-label="${menuTitle!'Section Navigation'}">
+ aria-label="">
  <div class="bbc-container">
  <div class="bbc-navigation-menu__content">
  <!-- Menu Title (for mobile/vertical layouts) -->
  <div class="bbc-navigation-menu__header">
- <h2 class="bbc-navigation-menu__title">${menuTitle!'Section Navigation'}</h2>
+ <h2 class="bbc-navigation-menu__title"></h2>
  <!-- Mobile Toggle -->
  <button class="bbc-navigation-menu__toggle" 
  aria-controls="bbc-nav-menu"
@@ -20,19 +19,16 @@
  <!-- Navigation Menu -->
  <div id="bbc-nav-menu" class="bbc-navigation-menu__menu" 
  <ul class="bbc-navigation-menu__list">
- <#if menuItems?has_content>
  <#assign navItems = menuItems?eval>
  <#list navItems as item>
- <li class="bbc-navigation-menu__item <#if item.submenu?has_content>bbc-navigation-menu__item--has-submenu</#if>">
+ <li class="bbc-navigation-menu__item bbc-navigation-menu__item--has-submenu">
  <!-- Main Menu Link -->
- <a href="${item.url}" 
+ <a href="" 
  class="bbc-navigation-menu__link" 
- <#if item.submenu?has_content>
  aria-haspopup="true"
  aria-expanded="false"
- aria-controls="submenu-${item_index}"
- </#if>>
- <#if showIcons>
+ aria-controls="submenu-"
+ >
  <span class="bbc-navigation-menu__icon">
  <#switch item.label?lower_case>
  <#case "news">
@@ -66,37 +62,29 @@
  </svg>
  </#switch>
  </span>
- </#if>
- <span class="bbc-navigation-menu__text">${item.label}</span>
- <#if item.submenu?has_content>
+ <span class="bbc-navigation-menu__text"></span>
  <svg class="bbc-navigation-menu__arrow" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
  <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
  </svg>
- </#if>
  </a>
  <!-- Submenu -->
- <#if item.submenu?has_content>
- <ul id="submenu-${item_index}" 
+ <ul id="submenu-" 
  class="bbc-navigation-menu__submenu" 
  role="menu">
  <#list item.submenu as subitem>
  <li class="bbc-navigation-menu__submenu-item" role="none">
- <a href="${subitem.url}" 
+ <a href="" 
  class="bbc-navigation-menu__submenu-link" 
  role="menuitem"
 >
- ${subitem.label}
  </a>
  </li>
  </#list>
  </ul>
- </#if>
  </li>
  </#list>
- </#if>
  </ul>
  <!-- Search (if enabled) -->
- <#if enableSearch>
  <div class="bbc-navigation-menu__search">
  <form class="bbc-navigation-menu__search-form" >
  <input type="search" 
@@ -112,7 +100,6 @@
  </button>
  </form>
  </div>
- </#if>
  </div>
  </div>
  </div>

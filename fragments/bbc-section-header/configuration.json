@@ -1,29 +1,3 @@
 {
-  "fieldSets": [
-    {
-      "fields": [
-        {
-          "name": "headerStyle",
-          "label": "Header Style",
-          "description": "Visual style of the header",
-          "type": "select",
-          "typeOptions": {
-            "validValues": [
-              {"value": "default", "label": "Default"},
-              {"value": "featured", "label": "Featured"},
-              {"value": "minimal", "label": "Minimal"}
-            ]
-          },
-          "defaultValue": "default"
-        },
-        {
-          "name": "showLastUpdated",
-          "label": "Show Last Updated",
-          "description": "Display last updated timestamp",
-          "type": "checkbox",
-          "defaultValue": true
-        }
-      ]
-    }
-  ]
+  "fieldSets": []
 }

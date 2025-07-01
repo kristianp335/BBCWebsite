@@ -2,33 +2,29 @@
  <div class="bbc-container">
  <!-- Footer Links -->
  <div class="bbc-footer__links">
- <#if footerLinks?has_content>
  <#assign linkSections = footerLinks?eval>
  <#list linkSections as section>
  <div class="bbc-footer__section">
- <h3 class="bbc-footer__section-title">${section.title}</h3>
+ <h3 class="bbc-footer__section-title"></h3>
  <ul class="bbc-footer__section-list">
  <#list section.links as link>
  <li class="bbc-footer__section-item">
- <a href="${link.url}" class="bbc-footer__section-link" >
- ${link.label}
+ <a href="" class="bbc-footer__section-link" >
  </a>
  </li>
  </#list>
  </ul>
  </div>
  </#list>
- </#if>
  </div>
  <!-- Social Links -->
- <#if showSocialLinks && socialLinks?has_content>
  <div class="bbc-footer__social">
  <h3 class="bbc-footer__social-title">Follow BBC</h3>
  <ul class="bbc-footer__social-list">
  <#assign socialItems = socialLinks?eval>
  <#list socialItems as social>
  <li class="bbc-footer__social-item">
- <a href="${social.url}" class="bbc-footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="${social.label}" >
+ <a href="" class="bbc-footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="" >
  <#switch social.platform>
  <#case "facebook">
  <svg class="bbc-footer__social-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -56,20 +52,19 @@
  </svg>
  <#break>
  </#switch>
- <span class="bbc-visually-hidden">${social.label}</span>
+ <span class="bbc-visually-hidden"></span>
  </a>
  </li>
  </#list>
  </ul>
  </div>
- </#if>
  <!-- Footer Bottom -->
  <div class="bbc-footer__bottom">
  <div class="bbc-footer__logo">
- <span class="bbc-footer__logo-text">${logoText!'BBC'}</span>
+ <span class="bbc-footer__logo-text"></span>
  </div>
  <div class="bbc-footer__copyright">
- <p class="bbc-footer__copyright-text">${copyrightText!'© 2025 BBC. All rights reserved.'}</p>
+ <p class="bbc-footer__copyright-text"></p>
  </div>
  </div>
  </div>

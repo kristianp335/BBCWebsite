@@ -1,22 +1,3 @@
 {
-  "fieldSets": [
-    {
-      "fields": [
-        {
-          "name": "showCaptions",
-          "label": "Show Captions",
-          "description": "Enable caption support",
-          "type": "checkbox",
-          "defaultValue": true
-        },
-        {
-          "name": "autoPlay",
-          "label": "Auto Play",
-          "description": "Auto play video on load",
-          "type": "checkbox",
-          "defaultValue": false
-        }
-      ]
-    }
-  ]
+  "fieldSets": []
 }

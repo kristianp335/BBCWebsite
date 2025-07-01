@@ -1,61 +1,47 @@
-<header class="bbc-fragment bbc-section-header bbc-section-header--${headerStyle!'default'}" >
+<header class="bbc-fragment bbc-section-header bbc-section-header--" >
  <!-- Background Image (for featured style) -->
- <#if headerStyle == "featured" && backgroundImage?has_content>
- <div class="bbc-section-header__background" style="background-image: url('${backgroundImage!''}');">
+ <div class="bbc-section-header__background" style="background-image: url('');">
  <div class="bbc-section-header__overlay"></div>
  </div>
- </#if>
  <div class="bbc-container">
  <div class="bbc-section-header__content">
  <!-- Breadcrumbs -->
- <#if showBreadcrumbs && breadcrumbs?has_content>
  <nav class="bbc-section-header__breadcrumbs" aria-label="Breadcrumb navigation">
  <ol class="bbc-breadcrumb-list">
  <#assign breadcrumbItems = breadcrumbs?eval>
  <#list breadcrumbItems as crumb>
  <li class="bbc-breadcrumb-item">
- <#if crumb_has_next>
- <a href="${crumb.url}" class="bbc-breadcrumb-link" >
- ${crumb.label}
+ <a href="" class="bbc-breadcrumb-link" >
  </a>
  <svg class="bbc-breadcrumb-separator" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
  <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
  </svg>
  <#else>
- <span class="bbc-breadcrumb-current" aria-current="page">${crumb.label}</span>
- </#if>
+ <span class="bbc-breadcrumb-current" aria-current="page"></span>
  </li>
  </#list>
  </ol>
  </nav>
- </#if>
  <!-- Header Main Content -->
  <div class="bbc-section-header__main">
  <!-- Title and Description -->
  <div class="bbc-section-header__text">
  <h1 class="bbc-section-header__title" data-lfr-editable-id="sectionTitle" data-lfr-editable-type="text">
- ${sectionTitle!'Section Title'}
  </h1>
- <#if sectionDescription?has_content>
  <p class="bbc-section-header__description" data-lfr-editable-id="sectionDescription" data-lfr-editable-type="text">
- ${sectionDescription!'Section description'}
  </p>
- </#if>
  <!-- Last Updated -->
- <#if showLastUpdated && lastUpdated?has_content>
  <div class="bbc-section-header__meta">
- <time class="bbc-section-header__last-updated" datetime="${lastUpdated!''}">
- Last updated: ${lastUpdated!'Recently'}
+ <time class="bbc-section-header__last-updated" datetime="">
+ Last updated: 
  </time>
  </div>
- </#if>
  </div>
  <!-- Actions -->
- <#if showActions && actionButtons?has_content>
  <div class="bbc-section-header__actions">
  <#assign actions = actionButtons?eval>
  <#list actions as action>
- <button class="bbc-section-header__action-btn bbc-section-header__action-btn--${action.type}" 
+ <button class="bbc-section-header__action-btn bbc-section-header__action-btn--" 
 >
  <#switch action.type>
  <#case "follow">
@@ -89,11 +75,10 @@
  <circle cx="12" cy="12" r="10"/>
  </svg>
  </#switch>
- <span class="bbc-section-header__action-text">${action.label}</span>
+ <span class="bbc-section-header__action-text"></span>
  </button>
  </#list>
  </div>
- </#if>
  </div>
  </div>
  </div>
