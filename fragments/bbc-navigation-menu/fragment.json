@@ -1,77 +1,8 @@
 {
-  "fragmentEntryKey": "bbc-navigation-menu",
-  "name": "BBC Navigation Menu",
-  "description": "BBC-inspired navigation menu fragment for section navigation with dropdowns and mobile support",
-  "type": "component",
-  "thumbnail": "",
-  "configuration": {
-    "fieldSets": [
-      {
-        "fields": [
-          {
-            "name": "menuTitle",
-            "label": "Menu Title",
-            "description": "Title for the navigation menu",
-            "type": "text",
-            "typeOptions": {
-              "placeholder": "Main Navigation"
-            },
-            "defaultValue": "Section Navigation"
-          },
-          {
-            "name": "menuItems",
-            "label": "Menu Items",
-            "description": "Navigation menu items with optional sub-menus (JSON format)",
-            "type": "text",
-            "typeOptions": {
-              "placeholder": "[{\"label\": \"News\", \"url\": \"/news\", \"submenu\": [{\"label\": \"UK\", \"url\": \"/news/uk\"}]}]"
-            },
-            "defaultValue": "[{\"label\": \"News\", \"url\": \"/news\", \"submenu\": [{\"label\": \"UK\", \"url\": \"/news/uk\"}, {\"label\": \"World\", \"url\": \"/news/world\"}, {\"label\": \"Business\", \"url\": \"/news/business\"}, {\"label\": \"Politics\", \"url\": \"/news/politics\"}]}, {\"label\": \"Sport\", \"url\": \"/sport\", \"submenu\": [{\"label\": \"Football\", \"url\": \"/sport/football\"}, {\"label\": \"Cricket\", \"url\": \"/sport/cricket\"}, {\"label\": \"Tennis\", \"url\": \"/sport/tennis\"}, {\"label\": \"Olympics\", \"url\": \"/sport/olympics\"}]}, {\"label\": \"Weather\", \"url\": \"/weather\"}, {\"label\": \"Travel\", \"url\": \"/travel\"}, {\"label\": \"Culture\", \"url\": \"/culture\", \"submenu\": [{\"label\": \"Film\", \"url\": \"/culture/film\"}, {\"label\": \"Music\", \"url\": \"/culture/music\"}, {\"label\": \"Art\", \"url\": \"/culture/art\"}]}]"
-          },
-          {
-            "name": "layout",
-            "label": "Layout Style",
-            "description": "Navigation layout style",
-            "type": "select",
-            "typeOptions": {
-              "validValues": [
-                {"value": "horizontal", "label": "Horizontal"},
-                {"value": "vertical", "label": "Vertical"},
-                {"value": "compact", "label": "Compact"}
-              ]
-            },
-            "defaultValue": "horizontal"
-          },
-          {
-            "name": "showIcons",
-            "label": "Show Icons",
-            "description": "Display icons next to menu items",
-            "type": "checkbox",
-            "defaultValue": false
-          },
-          {
-            "name": "stickyNavigation",
-            "label": "Sticky Navigation",
-            "description": "Make navigation stick to top when scrolling",
-            "type": "checkbox",
-            "defaultValue": false
-          },
-          {
-            "name": "highlightCurrent",
-            "label": "Highlight Current Page",
-            "description": "Highlight the current page in navigation",
-            "type": "checkbox",
-            "defaultValue": true
-          },
-          {
-            "name": "enableSearch",
-            "label": "Enable Search",
-            "description": "Include search functionality in navigation",
-            "type": "checkbox",
-            "defaultValue": false
-          }
-        ]
-      }
-    ]
-  }
+"configurationPath": "./configuration.json",
+"cssPath": "./index.css",
+"htmlPath": "./index.html",
+"jsPath": "./main.js",
+"name": "BBC Navigation Menu",
+"type": "component"
 }

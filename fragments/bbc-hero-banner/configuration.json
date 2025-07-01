@@ -1,0 +1,98 @@
+{
+  "fragmentEntryKey": "bbc-hero-banner",
+  "name": "BBC Hero Banner",
+  "description": "BBC-inspired hero banner fragment for featured content with image and overlay text",
+  "type": "component",
+  "thumbnail": "",
+  "configuration": {
+    "fieldSets": [
+      {
+        "fields": [
+          {
+            "name": "backgroundImage",
+            "label": "Background Image",
+            "description": "Background image URL for the hero banner",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "https://example.com/image.jpg"
+            },
+            "defaultValue": ""
+          },
+          {
+            "name": "headline",
+            "label": "Headline",
+            "description": "Main headline text",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "Breaking news headline"
+            },
+            "defaultValue": "UK sees hottest day of the year so far and Turkey battles wildfires in Europe heatwave"
+          },
+          {
+            "name": "description",
+            "label": "Description",
+            "description": "Supporting description text",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "Additional details about the story"
+            },
+            "defaultValue": "Two people have died in Italy, as Portugal and Spain recorded their highest-ever June temperatures this week."
+          },
+          {
+            "name": "linkUrl",
+            "label": "Link URL",
+            "description": "URL for the hero banner link",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "/news/article"
+            },
+            "defaultValue": "/news/live/cd0v29vydx4t"
+          },
+          {
+            "name": "isLive",
+            "label": "Live Content",
+            "description": "Mark as live content",
+            "type": "checkbox",
+            "defaultValue": true
+          },
+          {
+            "name": "category",
+            "label": "Category",
+            "description": "Content category",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "News"
+            },
+            "defaultValue": "News"
+          },
+          {
+            "name": "overlayOpacity",
+            "label": "Overlay Opacity",
+            "description": "Background overlay opacity (0-100)",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "50"
+            },
+            "defaultValue": "40"
+          },
+          {
+            "name": "textPosition",
+            "label": "Text Position",
+            "description": "Position of text overlay",
+            "type": "select",
+            "typeOptions": {
+              "validValues": [
+                {"value": "bottom-left", "label": "Bottom Left"},
+                {"value": "bottom-right", "label": "Bottom Right"},
+                {"value": "center", "label": "Center"},
+                {"value": "top-left", "label": "Top Left"},
+                {"value": "top-right", "label": "Top Right"}
+              ]
+            },
+            "defaultValue": "bottom-left"
+          }
+        ]
+      }
+    ]
+  }
+}

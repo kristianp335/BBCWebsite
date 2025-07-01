@@ -1,59 +1,8 @@
 {
-  "fragmentEntryKey": "bbc-footer",
-  "name": "BBC Footer",
-  "description": "BBC-inspired footer fragment with links and information",
-  "type": "component",
-  "thumbnail": "",
-  "configuration": {
-    "fieldSets": [
-      {
-        "fields": [
-          {
-            "name": "logoText",
-            "label": "Logo Text",
-            "description": "Text to display in the footer logo",
-            "type": "text",
-            "typeOptions": {
-              "placeholder": "BBC"
-            },
-            "defaultValue": "BBC"
-          },
-          {
-            "name": "footerLinks",
-            "label": "Footer Links",
-            "description": "Footer navigation links (JSON format)",
-            "type": "text",
-            "typeOptions": {
-              "placeholder": "[{\"title\": \"About\", \"links\": [{\"label\": \"About the BBC\", \"url\": \"/about\"}]}]"
-            },
-            "defaultValue": "[{\"title\": \"BBC\", \"links\": [{\"label\": \"Home\", \"url\": \"/\"}, {\"label\": \"News\", \"url\": \"/news\"}, {\"label\": \"Sport\", \"url\": \"/sport\"}, {\"label\": \"Weather\", \"url\": \"/weather\"}]}, {\"title\": \"Help & Info\", \"links\": [{\"label\": \"Contact Us\", \"url\": \"/contact\"}, {\"label\": \"Accessibility\", \"url\": \"/accessibility\"}, {\"label\": \"Privacy Policy\", \"url\": \"/privacy\"}, {\"label\": \"Terms of Use\", \"url\": \"/terms\"}]}]"
-          },
-          {
-            "name": "copyrightText",
-            "label": "Copyright Text",
-            "description": "Copyright notice text",
-            "type": "text",
-            "defaultValue": "© 2025 British Broadcasting Corporation. The BBC is not responsible for the content of external sites."
-          },
-          {
-            "name": "showSocialLinks",
-            "label": "Show Social Links",
-            "description": "Display social media links",
-            "type": "checkbox",
-            "defaultValue": true
-          },
-          {
-            "name": "socialLinks",
-            "label": "Social Media Links",
-            "description": "Social media links (JSON format)",
-            "type": "text",
-            "typeOptions": {
-              "placeholder": "[{\"platform\": \"facebook\", \"url\": \"https://facebook.com/bbc\", \"label\": \"Facebook\"}]"
-            },
-            "defaultValue": "[{\"platform\": \"facebook\", \"url\": \"https://facebook.com/bbc\", \"label\": \"Facebook\"}, {\"platform\": \"twitter\", \"url\": \"https://twitter.com/bbc\", \"label\": \"Twitter\"}, {\"platform\": \"instagram\", \"url\": \"https://instagram.com/bbc\", \"label\": \"Instagram\"}, {\"platform\": \"youtube\", \"url\": \"https://youtube.com/bbc\", \"label\": \"YouTube\"}]"
-          }
-        ]
-      }
-    ]
-  }
+"configurationPath": "./configuration.json",
+"cssPath": "./index.css",
+"htmlPath": "./index.html",
+"jsPath": "./main.js",
+"name": "BBC Footer",
+"type": "component"
 }

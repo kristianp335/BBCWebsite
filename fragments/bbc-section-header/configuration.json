@@ -1,0 +1,111 @@
+{
+  "fragmentEntryKey": "bbc-section-header",
+  "name": "BBC Section Header",
+  "description": "BBC-inspired section header fragment for page and section titles with breadcrumbs and actions",
+  "type": "component",
+  "thumbnail": "",
+  "configuration": {
+    "fieldSets": [
+      {
+        "fields": [
+          {
+            "name": "sectionTitle",
+            "label": "Section Title",
+            "description": "Main title for the section",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "Business"
+            },
+            "defaultValue": "Business"
+          },
+          {
+            "name": "sectionDescription",
+            "label": "Section Description",
+            "description": "Optional description for the section",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "Latest business news and analysis"
+            },
+            "defaultValue": ""
+          },
+          {
+            "name": "breadcrumbs",
+            "label": "Breadcrumbs",
+            "description": "Breadcrumb navigation items (JSON format)",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "[{\"label\": \"Home\", \"url\": \"/\"}, {\"label\": \"Business\", \"url\": \"/business\"}]"
+            },
+            "defaultValue": "[{\"label\": \"Home\", \"url\": \"/\"}, {\"label\": \"Business\", \"url\": \"/business\"}]"
+          },
+          {
+            "name": "showBreadcrumbs",
+            "label": "Show Breadcrumbs",
+            "description": "Display breadcrumb navigation",
+            "type": "checkbox",
+            "defaultValue": true
+          },
+          {
+            "name": "headerStyle",
+            "label": "Header Style",
+            "description": "Visual style of the header",
+            "type": "select",
+            "typeOptions": {
+              "validValues": [
+                {"value": "default", "label": "Default"},
+                {"value": "minimal", "label": "Minimal"},
+                {"value": "featured", "label": "Featured"},
+                {"value": "dark", "label": "Dark"}
+              ]
+            },
+            "defaultValue": "default"
+          },
+          {
+            "name": "backgroundImage",
+            "label": "Background Image",
+            "description": "Optional background image for featured style",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "https://example.com/background.jpg"
+            },
+            "defaultValue": ""
+          },
+          {
+            "name": "showActions",
+            "label": "Show Actions",
+            "description": "Display action buttons (follow, share, etc.)",
+            "type": "checkbox",
+            "defaultValue": true
+          },
+          {
+            "name": "actionButtons",
+            "label": "Action Buttons",
+            "description": "Action buttons configuration (JSON format)",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "[{\"label\": \"Follow\", \"type\": \"follow\"}, {\"label\": \"Share\", \"type\": \"share\"}]"
+            },
+            "defaultValue": "[{\"label\": \"Follow Business\", \"type\": \"follow\"}, {\"label\": \"Share\", \"type\": \"share\"}]"
+          },
+          {
+            "name": "showLastUpdated",
+            "label": "Show Last Updated",
+            "description": "Display last updated timestamp",
+            "type": "checkbox",
+            "defaultValue": false
+          },
+          {
+            "name": "lastUpdated",
+            "label": "Last Updated",
+            "description": "Last updated timestamp",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "2025-07-01T12:00:00Z"
+            },
+            "defaultValue": ""
+          }
+        ]
+      }
+    ]
+  }
+}
