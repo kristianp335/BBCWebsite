@@ -35,7 +35,7 @@
 
       <#if category?has_content>
         <div class="bbc-live-content__category">
-          <span class="bbc-label" data-lfr-editable-id="category" data-lfr-editable-type="text">${category}</span>
+          <span class="bbc-label" data-lfr-editable-id="category" data-lfr-editable-type="text">${category!'Live'}</span>
         </div>
       </#if>
     </div>
@@ -49,7 +49,7 @@
         
         <#if description?has_content>
           <p class="bbc-body-text bbc-live-content__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
-            ${description}
+            ${description!'Live content description'}
           </p>
         </#if>
       </a>

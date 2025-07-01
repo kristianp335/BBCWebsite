@@ -29,7 +29,7 @@
       <!-- Category and Time -->
       <div class="bbc-news-card__meta">
         <#if category?has_content>
-          <span class="bbc-label bbc-news-card__category" data-lfr-editable-id="category" data-lfr-editable-type="text">${category}</span>
+          <span class="bbc-label bbc-news-card__category" data-lfr-editable-id="category" data-lfr-editable-type="text">${category!'News'}</span>
         </#if>
         <#if publishTime?has_content>
           <time class="bbc-news-card__time" datetime="${publishTime!''}">

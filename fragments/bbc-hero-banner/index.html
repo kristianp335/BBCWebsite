@@ -24,7 +24,7 @@
           <!-- Category -->
           <#if category?has_content>
             <div class="bbc-hero-banner__category">
-              <span class="bbc-label" data-lfr-editable-id="category" data-lfr-editable-type="text">${category}</span>
+              <span class="bbc-label" data-lfr-editable-id="category" data-lfr-editable-type="text">${category!'News'}</span>
             </div>
           </#if>
 
@@ -36,7 +36,7 @@
           <!-- Description -->
           <#if description?has_content>
             <p class="bbc-body-text bbc-body-text--large bbc-hero-banner__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
-              ${description}
+              ${description!'Featured story description'}
             </p>
           </#if>
         </div>
