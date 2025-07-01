@@ -38,12 +38,12 @@
         
         <!-- Title and Description -->
         <div class="bbc-section-header__text">
-          <h1 class="bbc-section-header__title">
+          <h1 class="bbc-section-header__title" data-lfr-editable-id="sectionTitle" data-lfr-editable-type="text">
             ${sectionTitle!'Section Title'}
           </h1>
           
           <#if sectionDescription?has_content>
-            <p class="bbc-section-header__description">
+            <p class="bbc-section-header__description" data-lfr-editable-id="sectionDescription" data-lfr-editable-type="text">
               ${sectionDescription}
             </p>
           </#if>

@@ -123,7 +123,7 @@
     <!-- Video Meta -->
     <div class="bbc-video-player__meta">
       <#if category?has_content>
-        <span class="bbc-label bbc-video-player__category">${category}</span>
+        <span class="bbc-label bbc-video-player__category" data-lfr-editable-id="category" data-lfr-editable-type="text">${category}</span>
       </#if>
       <#if duration?has_content>
         <span class="bbc-video-player__duration">${duration}</span>
@@ -136,13 +136,13 @@
     </div>
 
     <!-- Video Title -->
-    <h2 class="bbc-video-player__title">
+    <h2 class="bbc-video-player__title" data-lfr-editable-id="videoTitle" data-lfr-editable-type="text">
       ${videoTitle!'Video Title'}
     </h2>
 
     <!-- Video Description -->
     <#if videoDescription?has_content>
-      <p class="bbc-video-player__description">
+      <p class="bbc-video-player__description" data-lfr-editable-id="videoDescription" data-lfr-editable-type="text">
         ${videoDescription}
       </p>
     </#if>
