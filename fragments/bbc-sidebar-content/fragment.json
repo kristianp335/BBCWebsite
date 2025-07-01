@@ -1,8 +1,8 @@
 {
-"configurationPath": "./configuration.json",
-"cssPath": "./index.css",
-"htmlPath": "./index.html",
-"jsPath": "./main.js",
-"name": "BBC Sidebar Content",
-"type": "component"
+  "configurationPath": "configuration.json",
+  "cssPath": "index.css",
+  "htmlPath": "index.html",
+  "jsPath": "main.js",
+  "name": "bbc-sidebar-content",
+  "type": "component"
 }

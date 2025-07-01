@@ -1,8 +1,8 @@
 {
-"configurationPath": "./configuration.json",
-"cssPath": "./index.css",
-"htmlPath": "./index.html",
-"jsPath": "./main.js",
-"name": "BBC Footer",
-"type": "component"
+  "configurationPath": "configuration.json",
+  "cssPath": "index.css",
+  "htmlPath": "index.html",
+  "jsPath": "main.js",
+  "name": "bbc-footer",
+  "type": "component"
 }

@@ -138,6 +138,11 @@ Components integrate with CMS platforms through:
   - Cleaned up global scripts client extension (removed BBCAnalytics)
   - Removed analytics tracking functions from all fragment JavaScript files
   - Updated deployment packages with clean, tracking-free fragments
+- July 01, 2025. Fixed fragment structure and metadata injection issues:
+  - Fixed HTML structure and formatting issues that caused Liferay metadata injection
+  - Created missing fragment.json files for all fragments with proper paths
+  - Cleaned up HTML spacing and attribute formatting
+  - Updated deployment packages with corrected fragment structure
 
 ## User Preferences
 

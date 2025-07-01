@@ -1,46 +1,37 @@
-<article class="bbc-fragment bbc-news-card bbc-news-card--${cardSize!'medium'} bbc-news-card--${layout!'vertical'}" >
- <a href="#" class="bbc-news-card__link" data-lfr-editable-id="linkUrl" data-lfr-editable-type="link">
- 
- <!-- Image Section -->
- <div class="bbc-news-card__image-container">
- <img 
- src="https://via.placeholder.com/400x225/333/fff?text=News+Image" 
- alt="Article image" 
- class="bbc-news-card__image"
- loading="lazy"
- 
- data-lfr-editable-id="imageUrl"
- data-lfr-editable-type="image"
- >
- 
- <!-- Live Indicator -->
- <#if isLive>
- <div class="bbc-live-indicator bbc-news-card__live">
- LIVE
- </div>
- </#if>
- </div>
-
- <!-- Content Section -->
- <div class="bbc-news-card__content">
- 
- <!-- Category and Time -->
- <div class="bbc-news-card__meta">
- <span class="bbc-label bbc-news-card__category" data-lfr-editable-id="category" data-lfr-editable-type="text">News</span>
- <time class="bbc-news-card__time" data-lfr-editable-id="publishTime" data-lfr-editable-type="text">1 hr ago</time>
- </div>
-
- <!-- Headline -->
- <h2 class="bbc-headline bbc-news-card__headline" data-lfr-editable-id="headline" data-lfr-editable-type="text">
- Article Headline
- </h2>
-
- <!-- Description -->
- <p class="bbc-body-text bbc-news-card__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
- Article description goes here. This text can be edited directly in the page editor.
- </p>
-
- </div>
- </a>
+<article class="bbc-fragment bbc-news-card bbc-news-card--${cardSize!'medium'} bbc-news-card--${layout!'vertical'}">
+  <a href="#" class="bbc-news-card__link" data-lfr-editable-id="linkUrl" data-lfr-editable-type="link">
+    <!-- Image Section -->
+    <div class="bbc-news-card__image-container">
+      <img 
+        src="https://via.placeholder.com/400x225/333/fff?text=News+Image" 
+        alt="Article image" 
+        class="bbc-news-card__image"
+        loading="lazy"
+        data-lfr-editable-id="imageUrl"
+        data-lfr-editable-type="image"
+>
+      <!-- Live Indicator -->
+      <#if isLive>
+        <div class="bbc-live-indicator bbc-news-card__live">
+          LIVE
+        </div>
+      </#if>
+    </div>
+    <!-- Content Section -->
+    <div class="bbc-news-card__content">
+      <!-- Category and Time -->
+      <div class="bbc-news-card__meta">
+        <span class="bbc-label bbc-news-card__category" data-lfr-editable-id="category" data-lfr-editable-type="text">News</span>
+        <time class="bbc-news-card__time" data-lfr-editable-id="publishTime" data-lfr-editable-type="text">1 hr ago</time>
+      </div>
+      <!-- Headline -->
+      <h2 class="bbc-headline bbc-news-card__headline" data-lfr-editable-id="headline" data-lfr-editable-type="text">
+        Article Headline
+      </h2>
+      <!-- Description -->
+      <p class="bbc-body-text bbc-news-card__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
+        Article description goes here. This text can be edited directly in the page editor.
+      </p>
+    </div>
+  </a>
 </article>
-

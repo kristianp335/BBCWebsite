@@ -1,15 +1,12 @@
 <header class="bbc-fragment bbc-section-header bbc-section-header--${headerStyle!'default'}" >
- 
  <!-- Background Image (for featured style) -->
  <#if headerStyle == "featured" && backgroundImage?has_content>
  <div class="bbc-section-header__background" style="background-image: url('${backgroundImage!''}');">
  <div class="bbc-section-header__overlay"></div>
  </div>
  </#if>
-
  <div class="bbc-container">
  <div class="bbc-section-header__content">
- 
  <!-- Breadcrumbs -->
  <#if showBreadcrumbs && breadcrumbs?has_content>
  <nav class="bbc-section-header__breadcrumbs" aria-label="Breadcrumb navigation">
@@ -32,22 +29,18 @@
  </ol>
  </nav>
  </#if>
-
  <!-- Header Main Content -->
  <div class="bbc-section-header__main">
- 
  <!-- Title and Description -->
  <div class="bbc-section-header__text">
  <h1 class="bbc-section-header__title" data-lfr-editable-id="sectionTitle" data-lfr-editable-type="text">
  ${sectionTitle!'Section Title'}
  </h1>
- 
  <#if sectionDescription?has_content>
  <p class="bbc-section-header__description" data-lfr-editable-id="sectionDescription" data-lfr-editable-type="text">
  ${sectionDescription!'Section description'}
  </p>
  </#if>
-
  <!-- Last Updated -->
  <#if showLastUpdated && lastUpdated?has_content>
  <div class="bbc-section-header__meta">
@@ -57,18 +50,13 @@
  </div>
  </#if>
  </div>
-
  <!-- Actions -->
  <#if showActions && actionButtons?has_content>
  <div class="bbc-section-header__actions">
  <#assign actions = actionButtons?eval>
  <#list actions as action>
  <button class="bbc-section-header__action-btn bbc-section-header__action-btn--${action.type}" 
- 
- 
- 
- >
- 
+>
  <#switch action.type>
  <#case "follow">
  <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -101,7 +89,6 @@
  <circle cx="12" cy="12" r="10"/>
  </svg>
  </#switch>
- 
  <span class="bbc-section-header__action-text">${action.label}</span>
  </button>
  </#list>
@@ -111,4 +98,3 @@
  </div>
  </div>
 </header>
-

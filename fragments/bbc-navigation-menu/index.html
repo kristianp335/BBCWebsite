@@ -2,17 +2,13 @@
  <#if stickyNavigation>
  role="navigation" 
  aria-label="${menuTitle!'Section Navigation'}">
- 
  <div class="bbc-container">
  <div class="bbc-navigation-menu__content">
- 
  <!-- Menu Title (for mobile/vertical layouts) -->
  <div class="bbc-navigation-menu__header">
  <h2 class="bbc-navigation-menu__title">${menuTitle!'Section Navigation'}</h2>
- 
  <!-- Mobile Toggle -->
  <button class="bbc-navigation-menu__toggle" 
- 
  aria-controls="bbc-nav-menu"
  aria-expanded="false"
  aria-label="Toggle navigation menu">
@@ -21,7 +17,6 @@
  <span class="bbc-navigation-menu__toggle-line"></span>
  </button>
  </div>
-
  <!-- Navigation Menu -->
  <div id="bbc-nav-menu" class="bbc-navigation-menu__menu" 
  <ul class="bbc-navigation-menu__list">
@@ -29,20 +24,14 @@
  <#assign navItems = menuItems?eval>
  <#list navItems as item>
  <li class="bbc-navigation-menu__item <#if item.submenu?has_content>bbc-navigation-menu__item--has-submenu</#if>">
- 
  <!-- Main Menu Link -->
  <a href="${item.url}" 
  class="bbc-navigation-menu__link" 
- 
- 
- 
  <#if item.submenu?has_content>
  aria-haspopup="true"
  aria-expanded="false"
- 
  aria-controls="submenu-${item_index}"
  </#if>>
- 
  <#if showIcons>
  <span class="bbc-navigation-menu__icon">
  <#switch item.label?lower_case>
@@ -78,30 +67,24 @@
  </#switch>
  </span>
  </#if>
- 
  <span class="bbc-navigation-menu__text">${item.label}</span>
- 
  <#if item.submenu?has_content>
  <svg class="bbc-navigation-menu__arrow" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
  <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
  </svg>
  </#if>
  </a>
-
  <!-- Submenu -->
  <#if item.submenu?has_content>
  <ul id="submenu-${item_index}" 
  class="bbc-navigation-menu__submenu" 
- 
  role="menu">
  <#list item.submenu as subitem>
  <li class="bbc-navigation-menu__submenu-item" role="none">
  <a href="${subitem.url}" 
  class="bbc-navigation-menu__submenu-link" 
  role="menuitem"
- 
- 
- >
+>
  ${subitem.label}
  </a>
  </li>
@@ -112,14 +95,12 @@
  </#list>
  </#if>
  </ul>
-
  <!-- Search (if enabled) -->
  <#if enableSearch>
  <div class="bbc-navigation-menu__search">
  <form class="bbc-navigation-menu__search-form" >
  <input type="search" 
  class="bbc-navigation-menu__search-input" 
- 
  placeholder="Search..." 
  aria-label="Search">
  <button type="submit" 
@@ -136,4 +117,3 @@
  </div>
  </div>
 </nav>
-

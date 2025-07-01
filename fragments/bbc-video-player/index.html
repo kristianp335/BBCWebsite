@@ -1,31 +1,23 @@
 <div class="bbc-fragment bbc-video-player bbc-video-player--${playerSize!'medium'}" >
- 
  <!-- Video Player Container -->
  <div class="bbc-video-player__container" 
- 
  <!-- Video Element -->
  <video class="bbc-video-player__video" 
- 
  <#if posterImage?has_content>poster="${posterImage}"</#if>
  <#if autoplay>autoplay muted</#if>
  preload="metadata"
  playsinline>
- 
  <#if videoUrl?has_content>
  <source src="${videoUrl!''}" type="video/mp4">
  </#if>
- 
  <#if showCaptions && captionsUrl?has_content>
  <track kind="captions" src="${captionsUrl!''}" srclang="en" label="English" default>
  </#if>
- 
  Your browser does not support the video tag.
  </video>
-
  <!-- Custom Controls Overlay -->
  <#if showControls>
  <div class="bbc-video-player__controls" 
- 
  <!-- Play/Pause Button -->
  <button class="bbc-video-player__play-btn" >
  <svg class="bbc-video-player__play-icon" width="64" height="64" viewBox="0 0 24 24" fill="currentColor">
@@ -35,15 +27,12 @@
  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
  </svg>
  </button>
-
  <!-- Loading Spinner -->
  <div class="bbc-video-player__loading" >
  <div class="bbc-video-player__spinner"></div>
  </div>
-
  <!-- Bottom Controls Bar -->
  <div class="bbc-video-player__bottom-controls">
- 
  <!-- Progress Bar -->
  <div class="bbc-video-player__progress-container" 
  <div class="bbc-video-player__progress-bar">
@@ -52,17 +41,14 @@
  <div class="bbc-video-player__progress-handle" 
  </div>
  </div>
-
  <!-- Control Buttons -->
  <div class="bbc-video-player__control-buttons">
- 
  <!-- Time Display -->
  <div class="bbc-video-player__time">
  <span class="bbc-video-player__current-time" 
  <span class="bbc-video-player__time-separator">/</span>
  <span class="bbc-video-player__total-time" 
  </div>
-
  <!-- Volume Control -->
  <div class="bbc-video-player__volume-control">
  <button class="bbc-video-player__volume-btn" >
@@ -79,7 +65,6 @@
  </div>
  </div>
  </div>
-
  <!-- Captions Toggle -->
  <#if showCaptions && captionsUrl?has_content>
  <button class="bbc-video-player__captions-btn" >
@@ -88,7 +73,6 @@
  </svg>
  </button>
  </#if>
-
  <!-- Share Button -->
  <#if showShareButton>
  <button class="bbc-video-player__share-btn" >
@@ -101,7 +85,6 @@
  </svg>
  </button>
  </#if>
-
  <!-- Fullscreen Toggle -->
  <button class="bbc-video-player__fullscreen-btn" >
  <svg class="bbc-video-player__fullscreen-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -116,26 +99,21 @@
  </div>
  </#if>
  </div>
-
  <!-- Video Information -->
  <div class="bbc-video-player__info">
- 
  <!-- Video Meta -->
  <div class="bbc-video-player__meta">
  <span class="bbc-label bbc-video-player__category" data-lfr-editable-id="category" data-lfr-editable-type="text">Video</span>
  <span class="bbc-video-player__duration" data-lfr-editable-id="duration" data-lfr-editable-type="text">5:32</span>
  <time class="bbc-video-player__date" data-lfr-editable-id="publishDate" data-lfr-editable-type="text">2 hours ago</time>
  </div>
-
  <!-- Video Title -->
  <h2 class="bbc-video-player__title" data-lfr-editable-id="videoTitle" data-lfr-editable-type="text">
  Video Title
  </h2>
-
  <!-- Video Description -->
  <p class="bbc-video-player__description" data-lfr-editable-id="videoDescription" data-lfr-editable-type="text">
  Video description goes here. This content can be edited directly in the page editor.
  </p>
  </div>
 </div>
-

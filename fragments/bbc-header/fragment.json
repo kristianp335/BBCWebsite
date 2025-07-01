@@ -3,6 +3,6 @@
   "cssPath": "index.css",
   "htmlPath": "index.html",
   "jsPath": "main.js",
-  "name": "bbc-hero-banner",
+  "name": "bbc-header",
   "type": "component"
 }

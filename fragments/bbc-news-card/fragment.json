@@ -1,8 +1,8 @@
 {
-"configurationPath": "./configuration.json",
-"cssPath": "./index.css",
-"htmlPath": "./index.html",
-"jsPath": "./main.js",
-"name": "BBC News Card",
-"type": "component"
+  "configurationPath": "configuration.json",
+  "cssPath": "index.css",
+  "htmlPath": "index.html",
+  "jsPath": "main.js",
+  "name": "bbc-news-card",
+  "type": "component"
 }
