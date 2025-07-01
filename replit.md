@@ -152,6 +152,10 @@ Components integrate with CMS platforms through:
   - Changed BBC Main Styles from themeCSS to globalCSS type
   - Added assemble property to both client extensions for proper Liferay deployment
   - Updated deployment packages with corrected client extension configurations
+- July 01, 2025. Fixed client extension YAML structure errors:
+  - Removed assemble property from individual client extensions (caused Gradle build error)
+  - Fixed YAML structure to prevent Jackson databind casting issues
+  - Updated deployment packages with corrected YAML configurations
 
 ## User Preferences
 

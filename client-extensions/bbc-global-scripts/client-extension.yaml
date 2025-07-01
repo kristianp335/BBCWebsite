@@ -7,4 +7,3 @@ bbc-global-scripts:
   name: BBC Global Scripts
   type: globalJS
   description: Global JavaScript functionality for BBC-inspired Liferay fragments including navigation interactions, search functionality, and analytics tracking
-  assemble: true

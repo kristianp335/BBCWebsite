@@ -7,4 +7,3 @@ bbc-main-styles:
   name: BBC Main Styles
   type: globalCSS
   description: Global CSS styles for BBC-inspired Liferay fragments with typography, colors, layout grid, and responsive breakpoints
-  assemble: true
