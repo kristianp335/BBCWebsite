@@ -106,6 +106,12 @@ Components integrate with CMS platforms through:
 ## Changelog
 
 - July 01, 2025. Initial setup
+- July 01, 2025. Updated all fragments to proper Liferay structure:
+  - Renamed fragment.json to configuration.json 
+  - Created new fragment.json files with configurationPath, cssPath, htmlPath, jsPath structure
+  - Added lfr-editable-id attributes to all text and image content for Liferay editing
+  - Created index.css files for each fragment (separate CSS architecture)
+  - Ensured all content elements are editable: headlines, descriptions, categories, images
 
 ## User Preferences
 

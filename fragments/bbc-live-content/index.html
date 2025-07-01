@@ -35,7 +35,7 @@
 
       <#if category?has_content>
         <div class="bbc-live-content__category">
-          <span class="bbc-label">${category}</span>
+          <span class="bbc-label" data-lfr-editable-id="category" data-lfr-editable-type="text">${category}</span>
         </div>
       </#if>
     </div>
@@ -43,12 +43,12 @@
     <!-- Live Content Body -->
     <div class="bbc-live-content__body">
       <a href="${liveUrl}" class="bbc-live-content__link" data-bbc-track-click data-bbc-track-category="live_content" data-bbc-track-label="live_click">
-        <h2 class="bbc-headline bbc-headline--medium bbc-live-content__title">
+        <h2 class="bbc-headline bbc-headline--medium bbc-live-content__title" data-lfr-editable-id="title" data-lfr-editable-type="text">
           ${title!'Live Content'}
         </h2>
         
         <#if description?has_content>
-          <p class="bbc-body-text bbc-live-content__description">
+          <p class="bbc-body-text bbc-live-content__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
             ${description}
           </p>
         </#if>
