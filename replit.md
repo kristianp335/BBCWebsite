@@ -133,6 +133,11 @@ Components integrate with CMS platforms through:
   - Removed extraneous metadata fields (fragmentEntryKey, name, description, type, thumbnail)
   - Fixed "required key [fieldSets] not found" and "extraneous key" errors
   - Updated all deployment packages with corrected configurations
+- July 01, 2025. Removed all analytics tracking functionality:
+  - Removed all data-bbc-track-* attributes from HTML templates
+  - Cleaned up global scripts client extension (removed BBCAnalytics)
+  - Removed analytics tracking functions from all fragment JavaScript files
+  - Updated deployment packages with clean, tracking-free fragments
 
 ## User Preferences
 
