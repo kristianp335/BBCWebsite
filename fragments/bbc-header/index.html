@@ -4,7 +4,7 @@
       <!-- Logo -->
       <div class="bbc-header__logo">
         <a href="${logoUrl}" class="bbc-header__logo-link" data-bbc-track-click data-bbc-track-category="header" data-bbc-track-label="logo">
-          <span class="bbc-header__logo-text">${logoText}</span>
+          <span class="bbc-header__logo-text" data-lfr-editable-id="logoText" data-lfr-editable-type="text">${logoText}</span>
         </a>
       </div>
 
@@ -33,7 +33,9 @@
                 type="search" 
                 class="bbc-search-form__input" 
                 data-bbc-search-input
-                placeholder="Search BBC" 
+                placeholder="Search BBC"
+                data-lfr-editable-id="searchPlaceholder"
+                data-lfr-editable-type="text" 
                 aria-label="Search BBC"
                 autocomplete="off"
               >
