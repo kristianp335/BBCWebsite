@@ -1,54 +1,44 @@
 <article class="bbc-fragment bbc-news-card bbc-news-card--${cardSize!'medium'} bbc-news-card--${layout!'vertical'}" data-bbc-track-view data-bbc-track-category="news_card" data-bbc-track-label="card_view">
-  <a href="${linkUrl!'#'}" class="bbc-news-card__link" data-bbc-track-click data-bbc-track-category="news_card" data-bbc-track-label="card_click">
+  <a href="#" class="bbc-news-card__link" data-bbc-track-click data-bbc-track-category="news_card" data-bbc-track-label="card_click" data-lfr-editable-id="linkUrl" data-lfr-editable-type="link">
     
     <!-- Image Section -->
-    <#if imageUrl?has_content>
-      <div class="bbc-news-card__image-container">
-        <img 
-          src="${imageUrl!''}" 
-          alt="${imageAlt!'Article image'}" 
-          class="bbc-news-card__image"
-          loading="lazy"
-          data-bbc-lazy-image
-          data-lfr-editable-id="imageUrl"
-          data-lfr-editable-type="image"
-        >
-        
-        <!-- Live Indicator -->
-        <#if isLive>
-          <div class="bbc-live-indicator bbc-news-card__live">
-            LIVE
-          </div>
-        </#if>
-      </div>
-    </#if>
+    <div class="bbc-news-card__image-container">
+      <img 
+        src="https://via.placeholder.com/400x225/333/fff?text=News+Image" 
+        alt="Article image" 
+        class="bbc-news-card__image"
+        loading="lazy"
+        data-bbc-lazy-image
+        data-lfr-editable-id="imageUrl"
+        data-lfr-editable-type="image"
+      >
+      
+      <!-- Live Indicator -->
+      <#if isLive>
+        <div class="bbc-live-indicator bbc-news-card__live">
+          LIVE
+        </div>
+      </#if>
+    </div>
 
     <!-- Content Section -->
     <div class="bbc-news-card__content">
       
       <!-- Category and Time -->
       <div class="bbc-news-card__meta">
-        <#if category?has_content>
-          <span class="bbc-label bbc-news-card__category" data-lfr-editable-id="category" data-lfr-editable-type="text">${category!'News'}</span>
-        </#if>
-        <#if publishTime?has_content>
-          <time class="bbc-news-card__time" datetime="${publishTime!''}">
-            ${publishTime!'Now'}
-          </time>
-        </#if>
+        <span class="bbc-label bbc-news-card__category" data-lfr-editable-id="category" data-lfr-editable-type="text">News</span>
+        <time class="bbc-news-card__time" data-lfr-editable-id="publishTime" data-lfr-editable-type="text">1 hr ago</time>
       </div>
 
       <!-- Headline -->
       <h2 class="bbc-headline bbc-news-card__headline" data-lfr-editable-id="headline" data-lfr-editable-type="text">
-        ${headline!'Article Headline'}
+        Article Headline
       </h2>
 
       <!-- Description -->
-      <#if description?has_content>
-        <p class="bbc-body-text bbc-news-card__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
-          ${description!'Article description'}
-        </p>
-      </#if>
+      <p class="bbc-body-text bbc-news-card__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
+        Article description goes here. This text can be edited directly in the page editor.
+      </p>
 
     </div>
   </a>

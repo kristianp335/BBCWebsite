@@ -1,8 +1,29 @@
 {
-"configurationPath": "./configuration.json",
-"cssPath": "./index.css",
-"htmlPath": "./index.html",
-"jsPath": "./main.js",
-"name": "BBC Header",
-"type": "component"
+  "fragmentEntryKey": "bbc-header",
+  "name": "BBC Header",
+  "description": "BBC-inspired header fragment with navigation and search",
+  "type": "component",
+  "thumbnail": "",
+  "configuration": {
+    "fieldSets": [
+      {
+        "fields": [
+          {
+            "name": "stickyHeader",
+            "label": "Sticky Header",
+            "description": "Make header stick to top when scrolling",
+            "type": "checkbox",
+            "defaultValue": true
+          },
+          {
+            "name": "showSearch",
+            "label": "Show Search",
+            "description": "Display search functionality",
+            "type": "checkbox",
+            "defaultValue": true
+          }
+        ]
+      }
+    ]
+  }
 }
