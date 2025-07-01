@@ -112,6 +112,15 @@ Components integrate with CMS platforms through:
   - Added lfr-editable-id attributes to all text and image content for Liferay editing
   - Created index.css files for each fragment (separate CSS architecture)
   - Ensured all content elements are editable: headlines, descriptions, categories, images
+- July 01, 2025. Moved all embedded styles from HTML to separate CSS files:
+  - Extracted CSS from all fragment HTML files to index.css files
+  - Removed all <style> tags from HTML templates
+  - Maintained clean separation between structure (HTML) and styling (CSS)
+- July 01, 2025. Created deployment packages:
+  - Generated individual zip files for each fragment (10 fragments)
+  - Generated individual zip files for each client extension (2 extensions)
+  - Created comprehensive zip files (all fragments, all client extensions)
+  - Added deployment README with detailed Liferay deployment instructions
 
 ## User Preferences
 
