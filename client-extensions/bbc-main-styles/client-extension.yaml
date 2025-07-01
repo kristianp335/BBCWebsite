@@ -1,0 +1,6 @@
+name: BBC Main Styles
+type: themeCSS
+description: Global CSS styles for BBC-inspired Liferay fragments with typography, colors, layout grid, and responsive breakpoints
+
+# Client extension metadata
+dxp.lxc.liferay.com.mainContext: /o/bbc-main-styles

@@ -1,0 +1,138 @@
+{
+  "fragmentEntryKey": "bbc-video-player",
+  "name": "BBC Video Player",
+  "description": "BBC-inspired video player fragment with controls, captions, and interactive features",
+  "type": "component",
+  "thumbnail": "",
+  "configuration": {
+    "fieldSets": [
+      {
+        "fields": [
+          {
+            "name": "videoTitle",
+            "label": "Video Title",
+            "description": "Title of the video",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "Watch: Trump talks about the dangerous reptiles near 'Alligator Alcatraz'"
+            },
+            "defaultValue": "Watch: Trump talks about the dangerous reptiles near 'Alligator Alcatraz'"
+          },
+          {
+            "name": "videoDescription",
+            "label": "Video Description",
+            "description": "Brief description of the video content",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "President Trump spoke to reporters before visiting a new immigration detention centre in South Florida."
+            },
+            "defaultValue": "President Trump spoke to reporters before visiting a new immigration detention centre in South Florida."
+          },
+          {
+            "name": "videoUrl",
+            "label": "Video URL",
+            "description": "URL to the video file",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "https://example.com/video.mp4"
+            },
+            "defaultValue": ""
+          },
+          {
+            "name": "posterImage",
+            "label": "Poster Image",
+            "description": "Thumbnail image shown before video plays",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "https://example.com/poster.jpg"
+            },
+            "defaultValue": ""
+          },
+          {
+            "name": "duration",
+            "label": "Duration",
+            "description": "Video duration display",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "57 mins"
+            },
+            "defaultValue": "57 mins"
+          },
+          {
+            "name": "publishDate",
+            "label": "Publish Date",
+            "description": "When the video was published",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "2025-07-01T10:00:00Z"
+            },
+            "defaultValue": "2025-07-01T10:00:00Z"
+          },
+          {
+            "name": "category",
+            "label": "Category",
+            "description": "Video category",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "US & Canada"
+            },
+            "defaultValue": "US & Canada"
+          },
+          {
+            "name": "showControls",
+            "label": "Show Controls",
+            "description": "Display video player controls",
+            "type": "checkbox",
+            "defaultValue": true
+          },
+          {
+            "name": "autoplay",
+            "label": "Autoplay",
+            "description": "Start playing automatically (muted)",
+            "type": "checkbox",
+            "defaultValue": false
+          },
+          {
+            "name": "showCaptions",
+            "label": "Show Captions",
+            "description": "Enable closed captions",
+            "type": "checkbox",
+            "defaultValue": true
+          },
+          {
+            "name": "captionsUrl",
+            "label": "Captions URL",
+            "description": "URL to VTT captions file",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "https://example.com/captions.vtt"
+            },
+            "defaultValue": ""
+          },
+          {
+            "name": "showShareButton",
+            "label": "Show Share Button",
+            "description": "Display video sharing functionality",
+            "type": "checkbox",
+            "defaultValue": true
+          },
+          {
+            "name": "playerSize",
+            "label": "Player Size",
+            "description": "Size of the video player",
+            "type": "select",
+            "typeOptions": {
+              "validValues": [
+                {"value": "small", "label": "Small"},
+                {"value": "medium", "label": "Medium"},
+                {"value": "large", "label": "Large"},
+                {"value": "full", "label": "Full Width"}
+              ]
+            },
+            "defaultValue": "medium"
+          }
+        ]
+      }
+    ]
+  }
+}

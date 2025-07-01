@@ -1,0 +1,378 @@
+/* BBC Main Styles - Global CSS Client Extension */
+
+/* BBC Color Palette */
+:root {
+  --bbc-black: #000000;
+  --bbc-white: #ffffff;
+  --bbc-red: #bb1919;
+  --bbc-grey-1: #404040;
+  --bbc-grey-2: #6e6e73;
+  --bbc-grey-3: #8c8c8c;
+  --bbc-grey-4: #b3b3b3;
+  --bbc-grey-5: #e6e8ea;
+  --bbc-grey-6: #f2f2f2;
+  --bbc-blue: #1976d2;
+  --bbc-orange: #ff6900;
+  --bbc-green: #00a86b;
+  
+  /* Typography */
+  --bbc-font-family: "ReithSans", Arial, Helvetica, sans-serif;
+  --bbc-font-serif: "ReithSerif", Georgia, serif;
+  --bbc-font-mono: "Courier New", monospace;
+  
+  /* Spacing */
+  --bbc-spacing-xs: 4px;
+  --bbc-spacing-sm: 8px;
+  --bbc-spacing-md: 16px;
+  --bbc-spacing-lg: 24px;
+  --bbc-spacing-xl: 32px;
+  --bbc-spacing-xxl: 48px;
+  
+  /* Layout */
+  --bbc-max-width: 1280px;
+  --bbc-grid-gap: 16px;
+  
+  /* Shadows */
+  --bbc-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --bbc-shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --bbc-shadow-heavy: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Reset and Base Styles */
+.bbc-fragment {
+  box-sizing: border-box;
+  font-family: var(--bbc-font-family);
+  line-height: 1.5;
+  color: var(--bbc-grey-1);
+}
+
+.bbc-fragment *,
+.bbc-fragment *::before,
+.bbc-fragment *::after {
+  box-sizing: inherit;
+}
+
+/* Typography Styles */
+.bbc-headline {
+  font-family: var(--bbc-font-serif);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 var(--bbc-spacing-md);
+  color: var(--bbc-black);
+}
+
+.bbc-headline--large {
+  font-size: 2.5rem;
+}
+
+.bbc-headline--medium {
+  font-size: 2rem;
+}
+
+.bbc-headline--small {
+  font-size: 1.5rem;
+}
+
+.bbc-headline--tiny {
+  font-size: 1.25rem;
+}
+
+.bbc-body-text {
+  font-family: var(--bbc-font-family);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 var(--bbc-spacing-md);
+  color: var(--bbc-grey-1);
+}
+
+.bbc-body-text--large {
+  font-size: 1.125rem;
+}
+
+.bbc-body-text--small {
+  font-size: 0.875rem;
+}
+
+.bbc-label {
+  font-family: var(--bbc-font-family);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--bbc-grey-2);
+}
+
+/* Link Styles */
+.bbc-link {
+  color: var(--bbc-blue);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.bbc-link:hover,
+.bbc-link:focus {
+  border-bottom-color: var(--bbc-blue);
+  outline: none;
+}
+
+.bbc-link--inverse {
+  color: var(--bbc-white);
+}
+
+.bbc-link--inverse:hover,
+.bbc-link--inverse:focus {
+  border-bottom-color: var(--bbc-white);
+}
+
+/* Button Styles */
+.bbc-button {
+  display: inline-block;
+  padding: var(--bbc-spacing-sm) var(--bbc-spacing-md);
+  font-family: var(--bbc-font-family);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid var(--bbc-black);
+  background: var(--bbc-white);
+  color: var(--bbc-black);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bbc-button:hover,
+.bbc-button:focus {
+  background: var(--bbc-black);
+  color: var(--bbc-white);
+  outline: none;
+}
+
+.bbc-button--primary {
+  background: var(--bbc-red);
+  border-color: var(--bbc-red);
+  color: var(--bbc-white);
+}
+
+.bbc-button--primary:hover,
+.bbc-button--primary:focus {
+  background: #a01515;
+  border-color: #a01515;
+}
+
+/* Layout Grid */
+.bbc-container {
+  max-width: var(--bbc-max-width);
+  margin: 0 auto;
+  padding: 0 var(--bbc-spacing-md);
+}
+
+.bbc-grid {
+  display: grid;
+  gap: var(--bbc-grid-gap);
+}
+
+.bbc-grid--2-col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.bbc-grid--3-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.bbc-grid--4-col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.bbc-grid--auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Card Components */
+.bbc-card {
+  background: var(--bbc-white);
+  border: 1px solid var(--bbc-grey-5);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.bbc-card:hover {
+  box-shadow: var(--bbc-shadow-medium);
+}
+
+.bbc-card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bbc-card__content {
+  padding: var(--bbc-spacing-md);
+}
+
+.bbc-card__title {
+  margin: 0 0 var(--bbc-spacing-sm);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.bbc-card__description {
+  margin: 0 0 var(--bbc-spacing-sm);
+  color: var(--bbc-grey-2);
+}
+
+.bbc-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-sm);
+  font-size: 0.75rem;
+  color: var(--bbc-grey-3);
+}
+
+/* Navigation */
+.bbc-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-lg);
+}
+
+.bbc-nav__item {
+  position: relative;
+}
+
+.bbc-nav__link {
+  display: block;
+  padding: var(--bbc-spacing-sm) 0;
+  font-weight: 600;
+  color: var(--bbc-black);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.bbc-nav__link:hover,
+.bbc-nav__link:focus,
+.bbc-nav__link--active {
+  border-bottom-color: var(--bbc-red);
+  outline: none;
+}
+
+/* Live Indicator */
+.bbc-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bbc-spacing-xs);
+  padding: 2px 6px;
+  background: var(--bbc-red);
+  color: var(--bbc-white);
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bbc-live-indicator::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--bbc-white);
+  border-radius: 50%;
+  animation: bbc-pulse 2s infinite;
+}
+
+@keyframes bbc-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .bbc-container {
+    padding: 0 var(--bbc-spacing-md);
+  }
+  
+  .bbc-grid--4-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bbc-headline--large {
+    font-size: 2rem;
+  }
+  
+  .bbc-headline--medium {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bbc-grid--2-col,
+  .bbc-grid--3-col,
+  .bbc-grid--4-col {
+    grid-template-columns: 1fr;
+  }
+  
+  .bbc-nav {
+    flex-direction: column;
+    gap: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-headline--large {
+    font-size: 1.75rem;
+  }
+  
+  .bbc-headline--medium {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bbc-container {
+    padding: 0 var(--bbc-spacing-sm);
+  }
+  
+  .bbc-card__content {
+    padding: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-headline--large {
+    font-size: 1.5rem;
+  }
+  
+  .bbc-headline--medium {
+    font-size: 1.25rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.bbc-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus Management */
+.bbc-fragment *:focus {
+  outline: 2px solid var(--bbc-blue);
+  outline-offset: 2px;
+}
+
+.bbc-fragment button:focus,
+.bbc-fragment a:focus {
+  outline: 2px solid var(--bbc-blue);
+  outline-offset: 2px;
+}

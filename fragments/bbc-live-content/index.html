@@ -1,0 +1,349 @@
+<div class="bbc-fragment bbc-live-content" data-bbc-track-view data-bbc-track-category="live_content" data-bbc-track-label="live_view">
+  <div class="bbc-live-content__container">
+    
+    <!-- Background Image -->
+    <#if backgroundImage?has_content>
+      <div class="bbc-live-content__background" style="background-image: url('${backgroundImage}');">
+        <div class="bbc-live-content__overlay"></div>
+      </div>
+    </#if>
+
+    <!-- Live Content Header -->
+    <div class="bbc-live-content__header">
+      <div class="bbc-live-content__status">
+        <div class="bbc-live-indicator bbc-live-content__indicator">
+          LIVE
+        </div>
+        
+        <#if showViewerCount>
+          <div class="bbc-live-content__viewers" data-bbc-viewer-count>
+            <svg class="bbc-live-content__viewers-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+            </svg>
+            <span class="bbc-live-content__viewers-count">Loading...</span>
+          </div>
+        </#if>
+
+        <#if enableNotifications>
+          <button class="bbc-live-content__notify-btn" data-bbc-notify-toggle aria-label="Enable notifications">
+            <svg class="bbc-live-content__notify-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+            </svg>
+          </button>
+        </#if>
+      </div>
+
+      <#if category?has_content>
+        <div class="bbc-live-content__category">
+          <span class="bbc-label">${category}</span>
+        </div>
+      </#if>
+    </div>
+
+    <!-- Live Content Body -->
+    <div class="bbc-live-content__body">
+      <a href="${liveUrl}" class="bbc-live-content__link" data-bbc-track-click data-bbc-track-category="live_content" data-bbc-track-label="live_click">
+        <h2 class="bbc-headline bbc-headline--medium bbc-live-content__title">
+          ${title!'Live Content'}
+        </h2>
+        
+        <#if description?has_content>
+          <p class="bbc-body-text bbc-live-content__description">
+            ${description}
+          </p>
+        </#if>
+      </a>
+
+      <!-- Live Updates Preview -->
+      <div class="bbc-live-content__updates" data-bbc-live-updates>
+        <div class="bbc-live-content__updates-loading">
+          <div class="bbc-live-content__loading-spinner"></div>
+          <span>Loading latest updates...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Content Footer -->
+    <div class="bbc-live-content__footer">
+      <div class="bbc-live-content__timestamp" data-bbc-last-update>
+        Last updated: <time>Loading...</time>
+      </div>
+      
+      <a href="${liveUrl}" class="bbc-button bbc-live-content__view-btn" data-bbc-track-click data-bbc-track-category="live_content" data-bbc-track-label="view_full_live">
+        Follow Live
+        <svg class="bbc-live-content__arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+.bbc-live-content {
+  background: var(--bbc-white);
+  border: 2px solid var(--bbc-red);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: var(--bbc-spacing-xl);
+}
+
+.bbc-live-content__container {
+  position: relative;
+  z-index: 2;
+}
+
+.bbc-live-content__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.bbc-live-content__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+}
+
+.bbc-live-content__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--bbc-spacing-md);
+  background: var(--bbc-red);
+  color: var(--bbc-white);
+}
+
+.bbc-live-content__status {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-md);
+}
+
+.bbc-live-content__indicator {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+}
+
+.bbc-live-content__viewers {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-xs);
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.bbc-live-content__notify-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--bbc-white);
+  padding: var(--bbc-spacing-xs);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bbc-live-content__notify-btn:hover,
+.bbc-live-content__notify-btn:focus {
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.bbc-live-content__notify-btn.active {
+  background: var(--bbc-white);
+  color: var(--bbc-red);
+}
+
+.bbc-live-content__category .bbc-label {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--bbc-white);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.bbc-live-content__body {
+  padding: var(--bbc-spacing-lg);
+}
+
+.bbc-live-content__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: var(--bbc-spacing-md);
+}
+
+.bbc-live-content__link:hover .bbc-live-content__title {
+  color: var(--bbc-blue);
+}
+
+.bbc-live-content__title {
+  margin: 0 0 var(--bbc-spacing-sm);
+  line-height: 1.3;
+}
+
+.bbc-live-content__description {
+  margin: 0;
+  color: var(--bbc-grey-2);
+}
+
+.bbc-live-content__updates {
+  border-top: 1px solid var(--bbc-grey-5);
+  padding-top: var(--bbc-spacing-md);
+  min-height: 100px;
+}
+
+.bbc-live-content__updates-loading {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-sm);
+  color: var(--bbc-grey-3);
+  font-size: 0.875rem;
+}
+
+.bbc-live-content__loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--bbc-grey-5);
+  border-top: 2px solid var(--bbc-red);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.bbc-live-content__update-item {
+  padding: var(--bbc-spacing-sm) 0;
+  border-bottom: 1px solid var(--bbc-grey-6);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: slideIn 0.3s ease forwards;
+}
+
+.bbc-live-content__update-item:last-child {
+  border-bottom: none;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bbc-live-content__update-time {
+  font-size: 0.75rem;
+  color: var(--bbc-grey-3);
+  margin-bottom: var(--bbc-spacing-xs);
+}
+
+.bbc-live-content__update-text {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.bbc-live-content__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--bbc-spacing-md);
+  background: var(--bbc-grey-6);
+  border-top: 1px solid var(--bbc-grey-5);
+}
+
+.bbc-live-content__timestamp {
+  font-size: 0.75rem;
+  color: var(--bbc-grey-3);
+}
+
+.bbc-live-content__view-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-xs);
+  font-size: 0.875rem;
+  padding: var(--bbc-spacing-sm) var(--bbc-spacing-md);
+}
+
+.bbc-live-content__arrow {
+  transition: transform 0.2s ease;
+}
+
+.bbc-live-content__view-btn:hover .bbc-live-content__arrow {
+  transform: translateX(2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bbc-live-content__header {
+    flex-direction: column;
+    gap: var(--bbc-spacing-sm);
+    align-items: flex-start;
+  }
+  
+  .bbc-live-content__body {
+    padding: var(--bbc-spacing-md);
+  }
+  
+  .bbc-live-content__footer {
+    flex-direction: column;
+    gap: var(--bbc-spacing-sm);
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .bbc-live-content__status {
+    flex-wrap: wrap;
+    gap: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-live-content__body {
+    padding: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-live-content__title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .bbc-live-content__loading-spinner {
+    animation: none;
+  }
+  
+  .bbc-live-content__update-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .bbc-live-content {
+    border-width: 3px;
+  }
+  
+  .bbc-live-content__overlay {
+    background: rgba(255, 255, 255, 0.98);
+  }
+}
+</style>

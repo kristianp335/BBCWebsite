@@ -1,0 +1,498 @@
+<aside class="bbc-fragment bbc-sidebar-content" role="complementary" data-bbc-track-view data-bbc-track-category="sidebar" data-bbc-track-label="sidebar_view">
+  <div class="bbc-sidebar-content__container">
+    
+    <!-- Sidebar Header -->
+    <header class="bbc-sidebar-content__header">
+      <h2 class="bbc-sidebar-content__title">${sidebarTitle!'More from BBC'}</h2>
+      
+      <#if contentType != "custom_content">
+        <div class="bbc-sidebar-content__type-indicator">
+          <span class="bbc-label">
+            <#switch contentType>
+              <#case "related_articles">Related<#break>
+              <#case "trending">Trending<#break>
+              <#case "most_read">Most Read<#break>
+              <#case "latest_news">Latest<#break>
+              <#case "weather_widget">Weather<#break>
+              <#default>Content
+            </#switch>
+          </span>
+        </div>
+      </#if>
+    </header>
+
+    <!-- Content Items -->
+    <div class="bbc-sidebar-content__items" data-bbc-sidebar-items>
+      <#if contentItems?has_content>
+        <#assign items = contentItems?eval>
+        <#assign itemLimit = (maxItems!'5')?number>
+        <#list items as item>
+          <#if item_index < itemLimit>
+            <article class="bbc-sidebar-content__item" data-bbc-track-view data-bbc-track-category="sidebar" data-bbc-track-label="item_view">
+              <a href="${item.url}" class="bbc-sidebar-content__item-link" data-bbc-track-click data-bbc-track-category="sidebar" data-bbc-track-label="item_click">
+                
+                <!-- Item Image -->
+                <#if showImages && item.image?has_content>
+                  <div class="bbc-sidebar-content__item-image">
+                    <img src="${item.image}" alt="${item.title}" loading="lazy" class="bbc-sidebar-content__image">
+                  </div>
+                </#if>
+
+                <!-- Item Content -->
+                <div class="bbc-sidebar-content__item-content">
+                  
+                  <!-- Item Meta -->
+                  <#if (showCategories && item.category?has_content) || (showTimestamps && item.time?has_content)>
+                    <div class="bbc-sidebar-content__item-meta">
+                      <#if showCategories && item.category?has_content>
+                        <span class="bbc-label bbc-sidebar-content__category">${item.category}</span>
+                      </#if>
+                      <#if showTimestamps && item.time?has_content>
+                        <time class="bbc-sidebar-content__time">${item.time}</time>
+                      </#if>
+                    </div>
+                  </#if>
+
+                  <!-- Item Title -->
+                  <h3 class="bbc-sidebar-content__item-title">
+                    ${item.title!'Article Title'}
+                  </h3>
+
+                  <!-- Item Description -->
+                  <#if item.description?has_content>
+                    <p class="bbc-sidebar-content__item-description">
+                      ${item.description}
+                    </p>
+                  </#if>
+                </div>
+              </a>
+            </article>
+          </#if>
+        </#list>
+      </#if>
+
+      <!-- Loading placeholder -->
+      <div class="bbc-sidebar-content__loading" style="display: none;">
+        <div class="bbc-sidebar-content__loading-item">
+          <div class="bbc-sidebar-content__loading-image"></div>
+          <div class="bbc-sidebar-content__loading-content">
+            <div class="bbc-sidebar-content__loading-title"></div>
+            <div class="bbc-sidebar-content__loading-meta"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load More Button -->
+    <#if enableLoadMore>
+      <div class="bbc-sidebar-content__actions">
+        <button class="bbc-button bbc-sidebar-content__load-more" data-bbc-load-more data-bbc-track-click data-bbc-track-category="sidebar" data-bbc-track-label="load_more">
+          Load More
+          <svg class="bbc-sidebar-content__load-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"/>
+          </svg>
+        </button>
+      </div>
+    </#if>
+
+    <!-- Weather Widget (if content type is weather) -->
+    <#if contentType == "weather_widget">
+      <div class="bbc-sidebar-content__weather-widget" data-bbc-weather-widget>
+        <div class="bbc-weather-widget">
+          <div class="bbc-weather-widget__header">
+            <h3 class="bbc-weather-widget__title">Weather</h3>
+            <button class="bbc-weather-widget__location-btn" data-bbc-weather-location aria-label="Change location">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              London
+            </button>
+          </div>
+          <div class="bbc-weather-widget__current">
+            <div class="bbc-weather-widget__temp">22°C</div>
+            <div class="bbc-weather-widget__condition">Partly Cloudy</div>
+          </div>
+          <div class="bbc-weather-widget__forecast">
+            <div class="bbc-weather-widget__day">
+              <span class="bbc-weather-widget__day-name">Today</span>
+              <span class="bbc-weather-widget__day-temp">24° / 16°</span>
+            </div>
+            <div class="bbc-weather-widget__day">
+              <span class="bbc-weather-widget__day-name">Tomorrow</span>
+              <span class="bbc-weather-widget__day-temp">26° / 18°</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </#if>
+  </div>
+</aside>
+
+<style>
+.bbc-sidebar-content {
+  background: var(--bbc-white);
+  border: 1px solid var(--bbc-grey-5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bbc-sidebar-content__container {
+  padding: var(--bbc-spacing-lg);
+}
+
+.bbc-sidebar-content__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--bbc-spacing-lg);
+  padding-bottom: var(--bbc-spacing-md);
+  border-bottom: 1px solid var(--bbc-grey-5);
+}
+
+.bbc-sidebar-content__title {
+  font-family: var(--bbc-font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--bbc-black);
+}
+
+.bbc-sidebar-content__type-indicator .bbc-label {
+  background: var(--bbc-grey-1);
+  color: var(--bbc-white);
+  padding: 2px 8px;
+  font-size: 0.625rem;
+  border-radius: 2px;
+}
+
+.bbc-sidebar-content__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bbc-spacing-lg);
+}
+
+.bbc-sidebar-content__item {
+  border-bottom: 1px solid var(--bbc-grey-6);
+  padding-bottom: var(--bbc-spacing-md);
+}
+
+.bbc-sidebar-content__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.bbc-sidebar-content__item-link {
+  display: flex;
+  gap: var(--bbc-spacing-md);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.bbc-sidebar-content__item-link:hover {
+  transform: translateX(2px);
+}
+
+.bbc-sidebar-content__item-link:focus {
+  outline: 2px solid var(--bbc-blue);
+  outline-offset: 2px;
+}
+
+.bbc-sidebar-content__item-image {
+  flex-shrink: 0;
+  width: 80px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.bbc-sidebar-content__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.bbc-sidebar-content__item-link:hover .bbc-sidebar-content__image {
+  transform: scale(1.05);
+}
+
+.bbc-sidebar-content__item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.bbc-sidebar-content__item-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-xs);
+  margin-bottom: var(--bbc-spacing-xs);
+}
+
+.bbc-sidebar-content__category {
+  font-size: 0.625rem;
+  color: var(--bbc-grey-2);
+  background: var(--bbc-grey-6);
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+.bbc-sidebar-content__time {
+  font-size: 0.75rem;
+  color: var(--bbc-grey-3);
+}
+
+.bbc-sidebar-content__item-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 var(--bbc-spacing-xs);
+  color: var(--bbc-black);
+  transition: color 0.2s ease;
+}
+
+.bbc-sidebar-content__item-link:hover .bbc-sidebar-content__item-title {
+  color: var(--bbc-blue);
+}
+
+.bbc-sidebar-content__item-description {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--bbc-grey-2);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Loading States */
+.bbc-sidebar-content__loading-item {
+  display: flex;
+  gap: var(--bbc-spacing-md);
+  padding: var(--bbc-spacing-md) 0;
+  border-bottom: 1px solid var(--bbc-grey-6);
+}
+
+.bbc-sidebar-content__loading-image {
+  width: 80px;
+  height: 60px;
+  background: var(--bbc-grey-5);
+  border-radius: 2px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.bbc-sidebar-content__loading-content {
+  flex: 1;
+}
+
+.bbc-sidebar-content__loading-title {
+  height: 14px;
+  background: var(--bbc-grey-5);
+  border-radius: 2px;
+  margin-bottom: var(--bbc-spacing-xs);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.bbc-sidebar-content__loading-meta {
+  height: 10px;
+  background: var(--bbc-grey-5);
+  border-radius: 2px;
+  width: 60%;
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Actions */
+.bbc-sidebar-content__actions {
+  margin-top: var(--bbc-spacing-lg);
+  padding-top: var(--bbc-spacing-md);
+  border-top: 1px solid var(--bbc-grey-5);
+}
+
+.bbc-sidebar-content__load-more {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bbc-spacing-xs);
+  font-size: 0.875rem;
+  padding: var(--bbc-spacing-sm) var(--bbc-spacing-md);
+}
+
+.bbc-sidebar-content__load-icon {
+  transition: transform 0.2s ease;
+}
+
+.bbc-sidebar-content__load-more:hover .bbc-sidebar-content__load-icon {
+  transform: translateX(2px);
+}
+
+/* Weather Widget */
+.bbc-sidebar-content__weather-widget {
+  margin-top: var(--bbc-spacing-lg);
+  padding-top: var(--bbc-spacing-lg);
+  border-top: 1px solid var(--bbc-grey-5);
+}
+
+.bbc-weather-widget {
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  color: var(--bbc-white);
+  padding: var(--bbc-spacing-md);
+  border-radius: 8px;
+}
+
+.bbc-weather-widget__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--bbc-spacing-md);
+}
+
+.bbc-weather-widget__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.bbc-weather-widget__location-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-xs);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--bbc-white);
+  padding: var(--bbc-spacing-xs) var(--bbc-spacing-sm);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.bbc-weather-widget__location-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.bbc-weather-widget__current {
+  text-align: center;
+  margin-bottom: var(--bbc-spacing-md);
+}
+
+.bbc-weather-widget__temp {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.bbc-weather-widget__condition {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.bbc-weather-widget__forecast {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bbc-spacing-xs);
+}
+
+.bbc-weather-widget__day {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  padding: var(--bbc-spacing-xs) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bbc-weather-widget__day:last-child {
+  border-bottom: none;
+}
+
+.bbc-weather-widget__day-name {
+  opacity: 0.9;
+}
+
+.bbc-weather-widget__day-temp {
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bbc-sidebar-content__container {
+    padding: var(--bbc-spacing-md);
+  }
+  
+  .bbc-sidebar-content__item-image {
+    width: 60px;
+    height: 45px;
+  }
+  
+  .bbc-sidebar-content__item-title {
+    font-size: 0.8125rem;
+  }
+  
+  .bbc-sidebar-content__item-description {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bbc-sidebar-content__container {
+    padding: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-sidebar-content__header {
+    flex-direction: column;
+    gap: var(--bbc-spacing-xs);
+    align-items: flex-start;
+  }
+  
+  .bbc-sidebar-content__item-link {
+    flex-direction: column;
+    gap: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-sidebar-content__item-image {
+    width: 100%;
+    height: 120px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .bbc-sidebar-content__image,
+  .bbc-sidebar-content__item-link,
+  .bbc-sidebar-content__load-icon {
+    transition: none;
+  }
+  
+  .bbc-sidebar-content__item-link:hover {
+    transform: none;
+  }
+  
+  .bbc-sidebar-content__item-link:hover .bbc-sidebar-content__image {
+    transform: none;
+  }
+  
+  .bbc-sidebar-content__loading-image,
+  .bbc-sidebar-content__loading-title,
+  .bbc-sidebar-content__loading-meta {
+    animation: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .bbc-sidebar-content {
+    border: 2px solid var(--bbc-black);
+  }
+  
+  .bbc-weather-widget {
+    background: var(--bbc-blue);
+    border: 1px solid var(--bbc-white);
+  }
+}
+</style>

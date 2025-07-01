@@ -1,0 +1,254 @@
+<div class="bbc-fragment bbc-header" data-bbc-sticky-header="${stickyHeader}">
+  <div class="bbc-container">
+    <div class="bbc-header__content">
+      <!-- Logo -->
+      <div class="bbc-header__logo">
+        <a href="${logoUrl}" class="bbc-header__logo-link" data-bbc-track-click data-bbc-track-category="header" data-bbc-track-label="logo">
+          <span class="bbc-header__logo-text">${logoText}</span>
+        </a>
+      </div>
+
+      <!-- Main Navigation -->
+      <nav class="bbc-header__nav" role="navigation" aria-label="Main navigation">
+        <ul class="bbc-nav bbc-header__nav-list">
+          <#if navigationItems?has_content>
+            <#assign navItems = navigationItems?eval>
+            <#list navItems as item>
+              <li class="bbc-nav__item">
+                <a href="${item.url}" class="bbc-nav__link" data-bbc-track-click data-bbc-track-category="header" data-bbc-track-label="nav_${item.label?lower_case}">
+                  ${item.label}
+                </a>
+              </li>
+            </#list>
+          </#if>
+        </ul>
+      </nav>
+
+      <!-- Search -->
+      <#if showSearch>
+        <div class="bbc-header__search">
+          <form class="bbc-search-form" data-bbc-search-form role="search" aria-label="Site search">
+            <div class="bbc-search-form__input-group">
+              <input 
+                type="search" 
+                class="bbc-search-form__input" 
+                data-bbc-search-input
+                placeholder="Search BBC" 
+                aria-label="Search BBC"
+                autocomplete="off"
+              >
+              <button type="submit" class="bbc-search-form__button" aria-label="Search">
+                <svg class="bbc-search-form__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </#if>
+
+      <!-- Mobile Menu Toggle -->
+      <button 
+        class="bbc-header__mobile-toggle" 
+        data-bbc-mobile-menu-toggle
+        aria-controls="bbc-mobile-menu"
+        aria-expanded="false"
+        aria-label="Open mobile menu"
+      >
+        <span class="bbc-header__mobile-toggle-line"></span>
+        <span class="bbc-header__mobile-toggle-line"></span>
+        <span class="bbc-header__mobile-toggle-line"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav id="bbc-mobile-menu" class="bbc-mobile-menu" data-bbc-mobile-menu role="navigation" aria-label="Mobile navigation">
+      <ul class="bbc-mobile-menu__list">
+        <#if navigationItems?has_content>
+          <#assign navItems = navigationItems?eval>
+          <#list navItems as item>
+            <li class="bbc-mobile-menu__item">
+              <a href="${item.url}" class="bbc-mobile-menu__link" data-bbc-track-click data-bbc-track-category="mobile_menu" data-bbc-track-label="nav_${item.label?lower_case}">
+                ${item.label}
+              </a>
+            </li>
+          </#list>
+        </#if>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<style>
+.bbc-header {
+  background: var(--bbc-white);
+  border-bottom: 1px solid var(--bbc-grey-5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.bbc-header--hidden {
+  transform: translateY(-100%);
+}
+
+.bbc-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--bbc-spacing-md) 0;
+  min-height: 60px;
+}
+
+.bbc-header__logo {
+  flex-shrink: 0;
+}
+
+.bbc-header__logo-link {
+  display: block;
+  text-decoration: none;
+}
+
+.bbc-header__logo-text {
+  font-family: var(--bbc-font-serif);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--bbc-black);
+  background: var(--bbc-black);
+  color: var(--bbc-white);
+  padding: 4px 8px;
+  display: inline-block;
+}
+
+.bbc-header__nav {
+  flex: 1;
+  margin: 0 var(--bbc-spacing-xl);
+}
+
+.bbc-header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-lg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bbc-header__search {
+  flex-shrink: 0;
+  margin-right: var(--bbc-spacing-md);
+}
+
+.bbc-search-form__input-group {
+  display: flex;
+  align-items: center;
+  background: var(--bbc-grey-6);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.bbc-search-form__input {
+  border: none;
+  background: transparent;
+  padding: var(--bbc-spacing-sm) var(--bbc-spacing-md);
+  font-family: var(--bbc-font-family);
+  font-size: 0.875rem;
+  width: 200px;
+  outline: none;
+}
+
+.bbc-search-form__button {
+  border: none;
+  background: var(--bbc-grey-1);
+  color: var(--bbc-white);
+  padding: var(--bbc-spacing-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bbc-search-form__button:hover {
+  background: var(--bbc-black);
+}
+
+.bbc-header__mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--bbc-spacing-sm);
+}
+
+.bbc-header__mobile-toggle-line {
+  width: 20px;
+  height: 2px;
+  background: var(--bbc-black);
+  transition: all 0.3s ease;
+}
+
+.bbc-mobile-menu {
+  display: none;
+  background: var(--bbc-white);
+  border-top: 1px solid var(--bbc-grey-5);
+  padding: var(--bbc-spacing-md) 0;
+}
+
+.bbc-mobile-menu--open {
+  display: block;
+}
+
+.bbc-mobile-menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bbc-mobile-menu__item {
+  border-bottom: 1px solid var(--bbc-grey-5);
+}
+
+.bbc-mobile-menu__link {
+  display: block;
+  padding: var(--bbc-spacing-md) 0;
+  color: var(--bbc-black);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.bbc-mobile-menu__link:hover {
+  color: var(--bbc-red);
+}
+
+@media (max-width: 768px) {
+  .bbc-header__nav {
+    display: none;
+  }
+  
+  .bbc-header__search {
+    margin-right: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-search-form__input {
+    width: 150px;
+  }
+  
+  .bbc-header__mobile-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .bbc-header__search {
+    display: none;
+  }
+  
+  .bbc-header__logo-text {
+    font-size: 1.5rem;
+  }
+}
+</style>

@@ -1,0 +1,455 @@
+<article class="bbc-fragment bbc-podcast-card bbc-podcast-card--${cardSize!'medium'}" data-bbc-track-view data-bbc-track-category="podcast" data-bbc-track-label="card_view">
+  
+  <!-- Podcast Card Content -->
+  <div class="bbc-podcast-card__content">
+    
+    <!-- Cover Image and Play Button -->
+    <div class="bbc-podcast-card__media">
+      <div class="bbc-podcast-card__cover">
+        <#if coverImage?has_content>
+          <img src="${coverImage}" alt="${podcastTitle} cover" class="bbc-podcast-card__cover-image" loading="lazy">
+        <#else>
+          <div class="bbc-podcast-card__cover-placeholder">
+            <svg class="bbc-podcast-card__cover-icon" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+          </div>
+        </#if>
+        
+        <#if showPlayButton && audioUrl?has_content>
+          <button class="bbc-podcast-card__play-btn" data-bbc-audio-play aria-label="Play episode" data-bbc-track-click data-bbc-track-category="podcast" data-bbc-track-label="play_button">
+            <svg class="bbc-podcast-card__play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg class="bbc-podcast-card__pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+          </button>
+        </#if>
+      </div>
+
+      <!-- Audio Progress (hidden initially) -->
+      <#if audioUrl?has_content>
+        <div class="bbc-podcast-card__progress" data-bbc-audio-progress style="display: none;">
+          <div class="bbc-podcast-card__progress-bar">
+            <div class="bbc-podcast-card__progress-fill"></div>
+          </div>
+          <div class="bbc-podcast-card__time">
+            <span class="bbc-podcast-card__current-time">0:00</span>
+            <span class="bbc-podcast-card__total-time">${duration!'0:00'}</span>
+          </div>
+        </div>
+      </#if>
+    </div>
+
+    <!-- Podcast Information -->
+    <div class="bbc-podcast-card__info">
+      
+      <!-- Podcast Meta -->
+      <div class="bbc-podcast-card__meta">
+        <#if category?has_content>
+          <span class="bbc-label bbc-podcast-card__category">${category}</span>
+        </#if>
+        <#if duration?has_content>
+          <span class="bbc-podcast-card__duration">${duration}</span>
+        </#if>
+        <#if publishDate?has_content>
+          <time class="bbc-podcast-card__date" datetime="${publishDate}">
+            <#-- Format date using JavaScript or show relative time -->
+            ${publishDate}
+          </time>
+        </#if>
+      </div>
+
+      <!-- Podcast Title -->
+      <h3 class="bbc-podcast-card__podcast-title">
+        <a href="${podcastUrl}" class="bbc-podcast-card__podcast-link" data-bbc-track-click data-bbc-track-category="podcast" data-bbc-track-label="podcast_title_click">
+          ${podcastTitle!'Podcast Title'}
+        </a>
+      </h3>
+
+      <!-- Episode Title -->
+      <h4 class="bbc-podcast-card__episode-title">
+        <a href="${podcastUrl}" class="bbc-podcast-card__episode-link" data-bbc-track-click data-bbc-track-category="podcast" data-bbc-track-label="episode_title_click">
+          ${episodeTitle!'Episode Title'}
+        </a>
+      </h4>
+
+      <!-- Episode Description -->
+      <#if description?has_content>
+        <p class="bbc-podcast-card__description">
+          ${description}
+        </p>
+      </#if>
+
+      <!-- Actions -->
+      <div class="bbc-podcast-card__actions">
+        <#if showSaveButton>
+          <button class="bbc-podcast-card__save-btn" data-bbc-save-toggle aria-label="Save episode" data-bbc-track-click data-bbc-track-category="podcast" data-bbc-track-label="save_button">
+            <svg class="bbc-podcast-card__save-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>
+            </svg>
+            <span class="bbc-podcast-card__save-text">Save</span>
+          </button>
+        </#if>
+
+        <button class="bbc-podcast-card__share-btn" data-bbc-share-toggle aria-label="Share episode" data-bbc-track-click data-bbc-track-category="podcast" data-bbc-track-label="share_button">
+          <svg class="bbc-podcast-card__share-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="18" cy="5" r="3"/>
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Audio Element -->
+  <#if audioUrl?has_content>
+    <audio class="bbc-podcast-card__audio" data-bbc-audio preload="none">
+      <source src="${audioUrl}" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </#if>
+</article>
+
+<style>
+.bbc-podcast-card {
+  background: var(--bbc-white);
+  border: 1px solid var(--bbc-grey-5);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  margin-bottom: var(--bbc-spacing-md);
+}
+
+.bbc-podcast-card:hover {
+  box-shadow: var(--bbc-shadow-medium);
+  transform: translateY(-2px);
+}
+
+.bbc-podcast-card__content {
+  padding: var(--bbc-spacing-md);
+}
+
+/* Media Section */
+.bbc-podcast-card__media {
+  margin-bottom: var(--bbc-spacing-md);
+}
+
+.bbc-podcast-card__cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bbc-grey-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bbc-podcast-card__cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bbc-podcast-card__cover-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--bbc-grey-3);
+}
+
+.bbc-podcast-card__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.8);
+  border: none;
+  border-radius: 50%;
+  color: var(--bbc-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.bbc-podcast-card__play-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.bbc-podcast-card__play-btn:focus {
+  outline: 2px solid var(--bbc-blue);
+  outline-offset: 2px;
+}
+
+.bbc-podcast-card__play-btn.playing .bbc-podcast-card__play-icon {
+  display: none;
+}
+
+.bbc-podcast-card__play-btn.playing .bbc-podcast-card__pause-icon {
+  display: block;
+}
+
+/* Progress Bar */
+.bbc-podcast-card__progress {
+  margin-top: var(--bbc-spacing-sm);
+}
+
+.bbc-podcast-card__progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--bbc-grey-5);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: var(--bbc-spacing-xs);
+}
+
+.bbc-podcast-card__progress-fill {
+  height: 100%;
+  background: var(--bbc-red);
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+.bbc-podcast-card__time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--bbc-grey-3);
+}
+
+/* Information Section */
+.bbc-podcast-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-sm);
+  margin-bottom: var(--bbc-spacing-sm);
+  flex-wrap: wrap;
+}
+
+.bbc-podcast-card__category {
+  font-size: 0.625rem;
+  background: var(--bbc-red);
+  color: var(--bbc-white);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.bbc-podcast-card__duration,
+.bbc-podcast-card__date {
+  font-size: 0.75rem;
+  color: var(--bbc-grey-3);
+}
+
+.bbc-podcast-card__podcast-title {
+  margin: 0 0 var(--bbc-spacing-xs);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.bbc-podcast-card__podcast-link {
+  color: var(--bbc-grey-2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bbc-podcast-card__podcast-link:hover,
+.bbc-podcast-card__podcast-link:focus {
+  color: var(--bbc-blue);
+  outline: none;
+}
+
+.bbc-podcast-card__episode-title {
+  margin: 0 0 var(--bbc-spacing-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.bbc-podcast-card__episode-link {
+  color: var(--bbc-black);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bbc-podcast-card__episode-link:hover,
+.bbc-podcast-card__episode-link:focus {
+  color: var(--bbc-blue);
+  outline: none;
+}
+
+.bbc-podcast-card__description {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--bbc-grey-2);
+  margin: 0 0 var(--bbc-spacing-md);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Actions */
+.bbc-podcast-card__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-sm);
+}
+
+.bbc-podcast-card__save-btn,
+.bbc-podcast-card__share-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-xs);
+  background: none;
+  border: 1px solid var(--bbc-grey-4);
+  color: var(--bbc-grey-2);
+  padding: var(--bbc-spacing-xs) var(--bbc-spacing-sm);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bbc-podcast-card__save-btn:hover,
+.bbc-podcast-card__share-btn:hover {
+  background: var(--bbc-grey-6);
+  border-color: var(--bbc-grey-3);
+}
+
+.bbc-podcast-card__save-btn:focus,
+.bbc-podcast-card__share-btn:focus {
+  outline: 2px solid var(--bbc-blue);
+  outline-offset: 2px;
+}
+
+.bbc-podcast-card__save-btn.saved {
+  background: var(--bbc-blue);
+  border-color: var(--bbc-blue);
+  color: var(--bbc-white);
+}
+
+.bbc-podcast-card__save-btn.saved .bbc-podcast-card__save-icon {
+  fill: currentColor;
+}
+
+/* Size Variants */
+.bbc-podcast-card--small .bbc-podcast-card__content {
+  padding: var(--bbc-spacing-sm);
+}
+
+.bbc-podcast-card--small .bbc-podcast-card__cover {
+  aspect-ratio: 4 / 3;
+}
+
+.bbc-podcast-card--small .bbc-podcast-card__play-btn {
+  width: 48px;
+  height: 48px;
+}
+
+.bbc-podcast-card--small .bbc-podcast-card__episode-title {
+  font-size: 0.875rem;
+}
+
+.bbc-podcast-card--small .bbc-podcast-card__description {
+  font-size: 0.8125rem;
+  -webkit-line-clamp: 1;
+}
+
+.bbc-podcast-card--large .bbc-podcast-card__content {
+  padding: var(--bbc-spacing-lg);
+}
+
+.bbc-podcast-card--large .bbc-podcast-card__episode-title {
+  font-size: 1.25rem;
+}
+
+.bbc-podcast-card--large .bbc-podcast-card__description {
+  font-size: 1rem;
+  -webkit-line-clamp: 3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bbc-podcast-card__content {
+    padding: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-podcast-card__play-btn {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .bbc-podcast-card__episode-title {
+    font-size: 0.875rem;
+  }
+  
+  .bbc-podcast-card__description {
+    font-size: 0.8125rem;
+  }
+  
+  .bbc-podcast-card__actions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .bbc-podcast-card__meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--bbc-spacing-xs);
+  }
+  
+  .bbc-podcast-card__actions {
+    justify-content: center;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .bbc-podcast-card,
+  .bbc-podcast-card__play-btn,
+  .bbc-podcast-card__progress-fill {
+    transition: none;
+  }
+  
+  .bbc-podcast-card:hover {
+    transform: none;
+  }
+  
+  .bbc-podcast-card__play-btn:hover {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .bbc-podcast-card {
+    border: 2px solid var(--bbc-black);
+  }
+  
+  .bbc-podcast-card__play-btn {
+    background: var(--bbc-black);
+    border: 2px solid var(--bbc-white);
+  }
+}
+
+/* Audio element hidden */
+.bbc-podcast-card__audio {
+  display: none;
+}
+</style>

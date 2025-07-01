@@ -1,0 +1,59 @@
+{
+  "fragmentEntryKey": "bbc-header",
+  "name": "BBC Header",
+  "description": "BBC-inspired header fragment with navigation and branding",
+  "type": "component",
+  "thumbnail": "",
+  "configuration": {
+    "fieldSets": [
+      {
+        "fields": [
+          {
+            "name": "logoText",
+            "label": "Logo Text",
+            "description": "Text to display in the logo",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "BBC"
+            },
+            "defaultValue": "BBC"
+          },
+          {
+            "name": "logoUrl",
+            "label": "Logo URL",
+            "description": "URL for the logo link",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "/"
+            },
+            "defaultValue": "/"
+          },
+          {
+            "name": "showSearch",
+            "label": "Show Search",
+            "description": "Display search functionality",
+            "type": "checkbox",
+            "defaultValue": true
+          },
+          {
+            "name": "navigationItems",
+            "label": "Navigation Items",
+            "description": "Navigation menu items (JSON format)",
+            "type": "text",
+            "typeOptions": {
+              "placeholder": "[{\"label\": \"News\", \"url\": \"/news\"}, {\"label\": \"Sport\", \"url\": \"/sport\"}]"
+            },
+            "defaultValue": "[{\"label\": \"News\", \"url\": \"/news\"}, {\"label\": \"Sport\", \"url\": \"/sport\"}, {\"label\": \"Business\", \"url\": \"/business\"}, {\"label\": \"Innovation\", \"url\": \"/innovation\"}, {\"label\": \"Culture\", \"url\": \"/culture\"}, {\"label\": \"Travel\", \"url\": \"/travel\"}]"
+          },
+          {
+            "name": "stickyHeader",
+            "label": "Sticky Header",
+            "description": "Make header stick to top on scroll",
+            "type": "checkbox",
+            "defaultValue": true
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,460 @@
+<header class="bbc-fragment bbc-section-header bbc-section-header--${headerStyle!'default'}" data-bbc-track-view data-bbc-track-category="section_header" data-bbc-track-label="header_view">
+  
+  <!-- Background Image (for featured style) -->
+  <#if headerStyle == "featured" && backgroundImage?has_content>
+    <div class="bbc-section-header__background" style="background-image: url('${backgroundImage}');">
+      <div class="bbc-section-header__overlay"></div>
+    </div>
+  </#if>
+
+  <div class="bbc-container">
+    <div class="bbc-section-header__content">
+      
+      <!-- Breadcrumbs -->
+      <#if showBreadcrumbs && breadcrumbs?has_content>
+        <nav class="bbc-section-header__breadcrumbs" aria-label="Breadcrumb navigation">
+          <ol class="bbc-breadcrumb-list">
+            <#assign breadcrumbItems = breadcrumbs?eval>
+            <#list breadcrumbItems as crumb>
+              <li class="bbc-breadcrumb-item">
+                <#if crumb_has_next>
+                  <a href="${crumb.url}" class="bbc-breadcrumb-link" data-bbc-track-click data-bbc-track-category="breadcrumb" data-bbc-track-label="${crumb.label?lower_case}">
+                    ${crumb.label}
+                  </a>
+                  <svg class="bbc-breadcrumb-separator" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                  </svg>
+                <#else>
+                  <span class="bbc-breadcrumb-current" aria-current="page">${crumb.label}</span>
+                </#if>
+              </li>
+            </#list>
+          </ol>
+        </nav>
+      </#if>
+
+      <!-- Header Main Content -->
+      <div class="bbc-section-header__main">
+        
+        <!-- Title and Description -->
+        <div class="bbc-section-header__text">
+          <h1 class="bbc-section-header__title">
+            ${sectionTitle!'Section Title'}
+          </h1>
+          
+          <#if sectionDescription?has_content>
+            <p class="bbc-section-header__description">
+              ${sectionDescription}
+            </p>
+          </#if>
+
+          <!-- Last Updated -->
+          <#if showLastUpdated && lastUpdated?has_content>
+            <div class="bbc-section-header__meta">
+              <time class="bbc-section-header__last-updated" datetime="${lastUpdated}">
+                Last updated: ${lastUpdated}
+              </time>
+            </div>
+          </#if>
+        </div>
+
+        <!-- Actions -->
+        <#if showActions && actionButtons?has_content>
+          <div class="bbc-section-header__actions">
+            <#assign actions = actionButtons?eval>
+            <#list actions as action>
+              <button class="bbc-section-header__action-btn bbc-section-header__action-btn--${action.type}" 
+                      data-bbc-action="${action.type}" 
+                      data-bbc-track-click 
+                      data-bbc-track-category="section_header" 
+                      data-bbc-track-label="action_${action.type}">
+                
+                <#switch action.type>
+                  <#case "follow">
+                    <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                      <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <#break>
+                  <#case "share">
+                    <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="18" cy="5" r="3"/>
+                      <circle cx="6" cy="12" r="3"/>
+                      <circle cx="18" cy="19" r="3"/>
+                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                    </svg>
+                    <#break>
+                  <#case "bookmark">
+                    <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>
+                    </svg>
+                    <#break>
+                  <#case "notification">
+                    <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                      <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                    <#break>
+                  <#default>
+                    <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                </#switch>
+                
+                <span class="bbc-section-header__action-text">${action.label}</span>
+              </button>
+            </#list>
+          </div>
+        </#if>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+.bbc-section-header {
+  background: var(--bbc-white);
+  border-bottom: 1px solid var(--bbc-grey-5);
+  padding: var(--bbc-spacing-xl) 0;
+  position: relative;
+}
+
+.bbc-section-header--minimal {
+  padding: var(--bbc-spacing-lg) 0;
+  border-bottom: none;
+}
+
+.bbc-section-header--featured {
+  background: var(--bbc-grey-1);
+  color: var(--bbc-white);
+  padding: var(--bbc-spacing-xxl) 0;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.bbc-section-header--dark {
+  background: var(--bbc-grey-1);
+  color: var(--bbc-white);
+}
+
+.bbc-section-header__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.bbc-section-header__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+.bbc-section-header__content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Breadcrumbs */
+.bbc-section-header__breadcrumbs {
+  margin-bottom: var(--bbc-spacing-lg);
+}
+
+.bbc-breadcrumb-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--bbc-spacing-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bbc-breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-xs);
+}
+
+.bbc-breadcrumb-link {
+  color: var(--bbc-grey-2);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.bbc-breadcrumb-link:hover,
+.bbc-breadcrumb-link:focus {
+  color: var(--bbc-blue);
+  outline: none;
+}
+
+.bbc-section-header--featured .bbc-breadcrumb-link,
+.bbc-section-header--dark .bbc-breadcrumb-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.bbc-section-header--featured .bbc-breadcrumb-link:hover,
+.bbc-section-header--featured .bbc-breadcrumb-link:focus,
+.bbc-section-header--dark .bbc-breadcrumb-link:hover,
+.bbc-section-header--dark .bbc-breadcrumb-link:focus {
+  color: var(--bbc-white);
+}
+
+.bbc-breadcrumb-current {
+  font-size: 0.875rem;
+  color: var(--bbc-grey-3);
+  font-weight: 500;
+}
+
+.bbc-section-header--featured .bbc-breadcrumb-current,
+.bbc-section-header--dark .bbc-breadcrumb-current {
+  color: var(--bbc-white);
+}
+
+.bbc-breadcrumb-separator {
+  color: var(--bbc-grey-4);
+  width: 12px;
+  height: 12px;
+}
+
+.bbc-section-header--featured .bbc-breadcrumb-separator,
+.bbc-section-header--dark .bbc-breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Main Content */
+.bbc-section-header__main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--bbc-spacing-xl);
+}
+
+.bbc-section-header__text {
+  flex: 1;
+}
+
+.bbc-section-header__title {
+  font-family: var(--bbc-font-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 var(--bbc-spacing-md);
+  color: var(--bbc-black);
+}
+
+.bbc-section-header--minimal .bbc-section-header__title {
+  font-size: 2rem;
+}
+
+.bbc-section-header--featured .bbc-section-header__title,
+.bbc-section-header--dark .bbc-section-header__title {
+  color: var(--bbc-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bbc-section-header__description {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--bbc-grey-2);
+  margin: 0 0 var(--bbc-spacing-md);
+  max-width: 600px;
+}
+
+.bbc-section-header--featured .bbc-section-header__description,
+.bbc-section-header--dark .bbc-section-header__description {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.bbc-section-header__meta {
+  margin-top: var(--bbc-spacing-md);
+}
+
+.bbc-section-header__last-updated {
+  font-size: 0.875rem;
+  color: var(--bbc-grey-3);
+  font-style: italic;
+}
+
+.bbc-section-header--featured .bbc-section-header__last-updated,
+.bbc-section-header--dark .bbc-section-header__last-updated {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Actions */
+.bbc-section-header__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bbc-spacing-sm);
+  flex-shrink: 0;
+}
+
+.bbc-section-header__action-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-xs);
+  background: var(--bbc-white);
+  border: 1px solid var(--bbc-grey-4);
+  color: var(--bbc-grey-2);
+  padding: var(--bbc-spacing-sm) var(--bbc-spacing-md);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.bbc-section-header__action-btn:hover {
+  background: var(--bbc-grey-6);
+  border-color: var(--bbc-grey-3);
+}
+
+.bbc-section-header__action-btn:focus {
+  outline: 2px solid var(--bbc-blue);
+  outline-offset: 2px;
+}
+
+.bbc-section-header__action-btn--follow {
+  background: var(--bbc-blue);
+  border-color: var(--bbc-blue);
+  color: var(--bbc-white);
+}
+
+.bbc-section-header__action-btn--follow:hover {
+  background: #1565c0;
+  border-color: #1565c0;
+}
+
+.bbc-section-header__action-btn--follow.following {
+  background: var(--bbc-green);
+  border-color: var(--bbc-green);
+}
+
+.bbc-section-header__action-btn--follow.following .bbc-section-header__action-text::after {
+  content: "ing";
+}
+
+.bbc-section-header--featured .bbc-section-header__action-btn,
+.bbc-section-header--dark .bbc-section-header__action-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--bbc-white);
+  backdrop-filter: blur(4px);
+}
+
+.bbc-section-header--featured .bbc-section-header__action-btn:hover,
+.bbc-section-header--dark .bbc-section-header__action-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.bbc-section-header__action-icon {
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .bbc-section-header__title {
+    font-size: 2.5rem;
+  }
+  
+  .bbc-section-header__main {
+    gap: var(--bbc-spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .bbc-section-header {
+    padding: var(--bbc-spacing-lg) 0;
+  }
+  
+  .bbc-section-header--featured {
+    padding: var(--bbc-spacing-xl) 0;
+    min-height: 250px;
+  }
+  
+  .bbc-section-header__main {
+    flex-direction: column;
+    gap: var(--bbc-spacing-md);
+  }
+  
+  .bbc-section-header__title {
+    font-size: 2rem;
+  }
+  
+  .bbc-section-header__description {
+    font-size: 1rem;
+  }
+  
+  .bbc-section-header__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .bbc-breadcrumb-list {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .bbc-section-header {
+    padding: var(--bbc-spacing-md) 0;
+  }
+  
+  .bbc-section-header--featured {
+    padding: var(--bbc-spacing-lg) 0;
+    min-height: 200px;
+  }
+  
+  .bbc-section-header__title {
+    font-size: 1.75rem;
+  }
+  
+  .bbc-section-header--minimal .bbc-section-header__title {
+    font-size: 1.5rem;
+  }
+  
+  .bbc-section-header__actions {
+    width: 100%;
+  }
+  
+  .bbc-section-header__action-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .bbc-section-header__action-btn {
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .bbc-section-header {
+    border-bottom: 2px solid var(--bbc-black);
+  }
+  
+  .bbc-section-header--featured .bbc-section-header__overlay {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
+</style>
