@@ -5,7 +5,9 @@
       <div class="bbc-hero-banner__background" 
            <#if backgroundImage?has_content>
            style="background-image: url('${backgroundImage}');"
-           </#if>>
+           </#if>
+           data-lfr-editable-id="backgroundImage"
+           data-lfr-editable-type="image">
         <div class="bbc-hero-banner__overlay" style="opacity: ${overlayOpacity!'40'}%;"></div>
       </div>
 
@@ -22,18 +24,18 @@
           <!-- Category -->
           <#if category?has_content>
             <div class="bbc-hero-banner__category">
-              <span class="bbc-label">${category}</span>
+              <span class="bbc-label" data-lfr-editable-id="category" data-lfr-editable-type="text">${category}</span>
             </div>
           </#if>
 
           <!-- Headline -->
-          <h1 class="bbc-headline bbc-headline--large bbc-hero-banner__headline">
+          <h1 class="bbc-headline bbc-headline--large bbc-hero-banner__headline" data-lfr-editable-id="headline" data-lfr-editable-type="text">
             ${headline!'Featured Story'}
           </h1>
 
           <!-- Description -->
           <#if description?has_content>
-            <p class="bbc-body-text bbc-body-text--large bbc-hero-banner__description">
+            <p class="bbc-body-text bbc-body-text--large bbc-hero-banner__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
               ${description}
             </p>
           </#if>

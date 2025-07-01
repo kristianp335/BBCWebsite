@@ -10,6 +10,8 @@
           class="bbc-news-card__image"
           loading="lazy"
           data-bbc-lazy-image
+          data-lfr-editable-id="imageUrl"
+          data-lfr-editable-type="image"
         >
         
         <!-- Live Indicator -->
@@ -27,7 +29,7 @@
       <!-- Category and Time -->
       <div class="bbc-news-card__meta">
         <#if category?has_content>
-          <span class="bbc-label bbc-news-card__category">${category}</span>
+          <span class="bbc-label bbc-news-card__category" data-lfr-editable-id="category" data-lfr-editable-type="text">${category}</span>
         </#if>
         <#if publishTime?has_content>
           <time class="bbc-news-card__time" datetime="${publishTime}">
@@ -37,13 +39,13 @@
       </div>
 
       <!-- Headline -->
-      <h2 class="bbc-headline bbc-news-card__headline">
+      <h2 class="bbc-headline bbc-news-card__headline" data-lfr-editable-id="headline" data-lfr-editable-type="text">
         ${headline!'Article Headline'}
       </h2>
 
       <!-- Description -->
       <#if description?has_content>
-        <p class="bbc-body-text bbc-news-card__description">
+        <p class="bbc-body-text bbc-news-card__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
           ${description}
         </p>
       </#if>
