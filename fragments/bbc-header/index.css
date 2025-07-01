@@ -1,1 +1,170 @@
-/* Fragment-specific styles for bbc-header */
+.bbc-header {
+  background: var(--bbc-white);
+  border-bottom: 1px solid var(--bbc-grey-5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.bbc-header--hidden {
+  transform: translateY(-100%);
+}
+
+.bbc-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--bbc-spacing-md) 0;
+  min-height: 60px;
+}
+
+.bbc-header__logo {
+  flex-shrink: 0;
+}
+
+.bbc-header__logo-link {
+  display: block;
+  text-decoration: none;
+}
+
+.bbc-header__logo-text {
+  font-family: var(--bbc-font-serif);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--bbc-black);
+  background: var(--bbc-black);
+  color: var(--bbc-white);
+  padding: 4px 8px;
+  display: inline-block;
+}
+
+.bbc-header__nav {
+  flex: 1;
+  margin: 0 var(--bbc-spacing-xl);
+}
+
+.bbc-header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-lg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bbc-header__search {
+  flex-shrink: 0;
+  margin-right: var(--bbc-spacing-md);
+}
+
+.bbc-search-form__input-group {
+  display: flex;
+  align-items: center;
+  background: var(--bbc-grey-6);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.bbc-search-form__input {
+  border: none;
+  background: transparent;
+  padding: var(--bbc-spacing-sm) var(--bbc-spacing-md);
+  font-family: var(--bbc-font-family);
+  font-size: 0.875rem;
+  width: 200px;
+  outline: none;
+}
+
+.bbc-search-form__button {
+  border: none;
+  background: var(--bbc-grey-1);
+  color: var(--bbc-white);
+  padding: var(--bbc-spacing-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bbc-search-form__button:hover {
+  background: var(--bbc-black);
+}
+
+.bbc-header__mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--bbc-spacing-sm);
+}
+
+.bbc-header__mobile-toggle-line {
+  width: 20px;
+  height: 2px;
+  background: var(--bbc-black);
+  transition: all 0.3s ease;
+}
+
+.bbc-mobile-menu {
+  display: none;
+  background: var(--bbc-white);
+  border-top: 1px solid var(--bbc-grey-5);
+  padding: var(--bbc-spacing-md) 0;
+}
+
+.bbc-mobile-menu--open {
+  display: block;
+}
+
+.bbc-mobile-menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bbc-mobile-menu__item {
+  border-bottom: 1px solid var(--bbc-grey-5);
+}
+
+.bbc-mobile-menu__link {
+  display: block;
+  padding: var(--bbc-spacing-md) 0;
+  color: var(--bbc-black);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.bbc-mobile-menu__link:hover {
+  color: var(--bbc-red);
+}
+
+@media (max-width: 768px) {
+  .bbc-header__nav {
+    display: none;
+  }
+  
+  .bbc-header__search {
+    margin-right: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-search-form__input {
+    width: 150px;
+  }
+  
+  .bbc-header__mobile-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .bbc-header__search {
+    display: none;
+  }
+  
+  .bbc-header__logo-text {
+    font-size: 1.5rem;
+  }
+}

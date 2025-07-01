@@ -1,1 +1,366 @@
-/* Fragment-specific styles for bbc-sidebar-content */
+.bbc-sidebar-content {
+  background: var(--bbc-white);
+  border: 1px solid var(--bbc-grey-5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bbc-sidebar-content__container {
+  padding: var(--bbc-spacing-lg);
+}
+
+.bbc-sidebar-content__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--bbc-spacing-lg);
+  padding-bottom: var(--bbc-spacing-md);
+  border-bottom: 1px solid var(--bbc-grey-5);
+}
+
+.bbc-sidebar-content__title {
+  font-family: var(--bbc-font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--bbc-black);
+}
+
+.bbc-sidebar-content__type-indicator .bbc-label {
+  background: var(--bbc-grey-1);
+  color: var(--bbc-white);
+  padding: 2px 8px;
+  font-size: 0.625rem;
+  border-radius: 2px;
+}
+
+.bbc-sidebar-content__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bbc-spacing-lg);
+}
+
+.bbc-sidebar-content__item {
+  border-bottom: 1px solid var(--bbc-grey-6);
+  padding-bottom: var(--bbc-spacing-md);
+}
+
+.bbc-sidebar-content__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.bbc-sidebar-content__item-link {
+  display: flex;
+  gap: var(--bbc-spacing-md);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.bbc-sidebar-content__item-link:hover {
+  transform: translateX(2px);
+}
+
+.bbc-sidebar-content__item-link:focus {
+  outline: 2px solid var(--bbc-blue);
+  outline-offset: 2px;
+}
+
+.bbc-sidebar-content__item-image {
+  flex-shrink: 0;
+  width: 80px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.bbc-sidebar-content__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.bbc-sidebar-content__item-link:hover .bbc-sidebar-content__image {
+  transform: scale(1.05);
+}
+
+.bbc-sidebar-content__item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.bbc-sidebar-content__item-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-xs);
+  margin-bottom: var(--bbc-spacing-xs);
+}
+
+.bbc-sidebar-content__category {
+  font-size: 0.625rem;
+  color: var(--bbc-grey-2);
+  background: var(--bbc-grey-6);
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+.bbc-sidebar-content__time {
+  font-size: 0.75rem;
+  color: var(--bbc-grey-3);
+}
+
+.bbc-sidebar-content__item-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 var(--bbc-spacing-xs);
+  color: var(--bbc-black);
+  transition: color 0.2s ease;
+}
+
+.bbc-sidebar-content__item-link:hover .bbc-sidebar-content__item-title {
+  color: var(--bbc-blue);
+}
+
+.bbc-sidebar-content__item-description {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--bbc-grey-2);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Loading States */
+.bbc-sidebar-content__loading-item {
+  display: flex;
+  gap: var(--bbc-spacing-md);
+  padding: var(--bbc-spacing-md) 0;
+  border-bottom: 1px solid var(--bbc-grey-6);
+}
+
+.bbc-sidebar-content__loading-image {
+  width: 80px;
+  height: 60px;
+  background: var(--bbc-grey-5);
+  border-radius: 2px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.bbc-sidebar-content__loading-content {
+  flex: 1;
+}
+
+.bbc-sidebar-content__loading-title {
+  height: 14px;
+  background: var(--bbc-grey-5);
+  border-radius: 2px;
+  margin-bottom: var(--bbc-spacing-xs);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.bbc-sidebar-content__loading-meta {
+  height: 10px;
+  background: var(--bbc-grey-5);
+  border-radius: 2px;
+  width: 60%;
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Actions */
+.bbc-sidebar-content__actions {
+  margin-top: var(--bbc-spacing-lg);
+  padding-top: var(--bbc-spacing-md);
+  border-top: 1px solid var(--bbc-grey-5);
+}
+
+.bbc-sidebar-content__load-more {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bbc-spacing-xs);
+  font-size: 0.875rem;
+  padding: var(--bbc-spacing-sm) var(--bbc-spacing-md);
+}
+
+.bbc-sidebar-content__load-icon {
+  transition: transform 0.2s ease;
+}
+
+.bbc-sidebar-content__load-more:hover .bbc-sidebar-content__load-icon {
+  transform: translateX(2px);
+}
+
+/* Weather Widget */
+.bbc-sidebar-content__weather-widget {
+  margin-top: var(--bbc-spacing-lg);
+  padding-top: var(--bbc-spacing-lg);
+  border-top: 1px solid var(--bbc-grey-5);
+}
+
+.bbc-weather-widget {
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  color: var(--bbc-white);
+  padding: var(--bbc-spacing-md);
+  border-radius: 8px;
+}
+
+.bbc-weather-widget__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--bbc-spacing-md);
+}
+
+.bbc-weather-widget__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.bbc-weather-widget__location-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--bbc-spacing-xs);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--bbc-white);
+  padding: var(--bbc-spacing-xs) var(--bbc-spacing-sm);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.bbc-weather-widget__location-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.bbc-weather-widget__current {
+  text-align: center;
+  margin-bottom: var(--bbc-spacing-md);
+}
+
+.bbc-weather-widget__temp {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.bbc-weather-widget__condition {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.bbc-weather-widget__forecast {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bbc-spacing-xs);
+}
+
+.bbc-weather-widget__day {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  padding: var(--bbc-spacing-xs) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bbc-weather-widget__day:last-child {
+  border-bottom: none;
+}
+
+.bbc-weather-widget__day-name {
+  opacity: 0.9;
+}
+
+.bbc-weather-widget__day-temp {
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bbc-sidebar-content__container {
+    padding: var(--bbc-spacing-md);
+  }
+  
+  .bbc-sidebar-content__item-image {
+    width: 60px;
+    height: 45px;
+  }
+  
+  .bbc-sidebar-content__item-title {
+    font-size: 0.8125rem;
+  }
+  
+  .bbc-sidebar-content__item-description {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bbc-sidebar-content__container {
+    padding: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-sidebar-content__header {
+    flex-direction: column;
+    gap: var(--bbc-spacing-xs);
+    align-items: flex-start;
+  }
+  
+  .bbc-sidebar-content__item-link {
+    flex-direction: column;
+    gap: var(--bbc-spacing-sm);
+  }
+  
+  .bbc-sidebar-content__item-image {
+    width: 100%;
+    height: 120px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .bbc-sidebar-content__image,
+  .bbc-sidebar-content__item-link,
+  .bbc-sidebar-content__load-icon {
+    transition: none;
+  }
+  
+  .bbc-sidebar-content__item-link:hover {
+    transform: none;
+  }
+  
+  .bbc-sidebar-content__item-link:hover .bbc-sidebar-content__image {
+    transform: none;
+  }
+  
+  .bbc-sidebar-content__loading-image,
+  .bbc-sidebar-content__loading-title,
+  .bbc-sidebar-content__loading-meta {
+    animation: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .bbc-sidebar-content {
+    border: 2px solid var(--bbc-black);
+  }
+  
+  .bbc-weather-widget {
+    background: var(--bbc-blue);
+    border: 1px solid var(--bbc-white);
+  }
+}
