@@ -121,6 +121,13 @@ Components integrate with CMS platforms through:
   - Generated individual zip files for each client extension (2 extensions)
   - Created comprehensive zip files (all fragments, all client extensions)
   - Added deployment README with detailed Liferay deployment instructions
+- July 01, 2025. Fixed FreeMarker template errors by adding default values to all variables
+- July 01, 2025. Cleaned up fragment configurations and templates:
+  - Removed redundant configuration fields that are now handled by Liferay editable elements
+  - Simplified HTML templates by removing unnecessary FreeMarker conditionals
+  - Kept only styling/layout configuration options (card size, text position, show/hide features)
+  - All content (text, images, links) now uses data-lfr-editable-type attributes for direct editing
+  - Updated deployment packages with cleaned configurations
 
 ## User Preferences
 

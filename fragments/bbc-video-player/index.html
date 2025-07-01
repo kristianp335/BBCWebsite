@@ -122,30 +122,20 @@
     
     <!-- Video Meta -->
     <div class="bbc-video-player__meta">
-      <#if category?has_content>
-        <span class="bbc-label bbc-video-player__category" data-lfr-editable-id="category" data-lfr-editable-type="text">${category!'Video'}</span>
-      </#if>
-      <#if duration?has_content>
-        <span class="bbc-video-player__duration">${duration!'00:00'}</span>
-      </#if>
-      <#if publishDate?has_content>
-        <time class="bbc-video-player__date" datetime="${publishDate!''}">
-          ${publishDate!'Today'}
-        </time>
-      </#if>
+      <span class="bbc-label bbc-video-player__category" data-lfr-editable-id="category" data-lfr-editable-type="text">Video</span>
+      <span class="bbc-video-player__duration" data-lfr-editable-id="duration" data-lfr-editable-type="text">5:32</span>
+      <time class="bbc-video-player__date" data-lfr-editable-id="publishDate" data-lfr-editable-type="text">2 hours ago</time>
     </div>
 
     <!-- Video Title -->
     <h2 class="bbc-video-player__title" data-lfr-editable-id="videoTitle" data-lfr-editable-type="text">
-      ${videoTitle!'Video Title'}
+      Video Title
     </h2>
 
     <!-- Video Description -->
-    <#if videoDescription?has_content>
-      <p class="bbc-video-player__description" data-lfr-editable-id="videoDescription" data-lfr-editable-type="text">
-        ${videoDescription!'Video description'}
-      </p>
-    </#if>
+    <p class="bbc-video-player__description" data-lfr-editable-id="videoDescription" data-lfr-editable-type="text">
+      Video description goes here. This content can be edited directly in the page editor.
+    </p>
   </div>
 </div>
 
