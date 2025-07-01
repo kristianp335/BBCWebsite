@@ -25,7 +25,7 @@
  <#assign itemLimit = (maxItems!'5')?number>
  <#list items as item>
  <#if item_index < itemLimit>
- <article class="bbc-sidebar-content__item" >
+ <div class="bbc-sidebar-content__item" >
  <a href="${item.url}" class="bbc-sidebar-content__item-link" >
  <!-- Item Image -->
  <#if showImages && item.image?has_content>
@@ -58,7 +58,7 @@
  </#if>
  </div>
  </a>
- </article>
+ </div>
  </#if>
  </#list>
  </#if>

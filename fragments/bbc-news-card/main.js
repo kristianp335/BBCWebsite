@@ -253,9 +253,9 @@
                 link.setAttribute('aria-label', ariaLabel);
             }
 
-            // Add article role to the card
+            // Add semantic role to the card
             if (!newsCard.getAttribute('role')) {
-                newsCard.setAttribute('role', 'article');
+                newsCard.setAttribute('role', 'div');
             }
 
             // Ensure headline has proper heading role

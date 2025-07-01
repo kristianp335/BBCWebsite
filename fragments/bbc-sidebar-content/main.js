@@ -24,7 +24,7 @@
             if (typeIndicator) {
                 const text = typeIndicator.textContent.trim().toLowerCase();
                 switch (text) {
-                    case 'related': return 'related_articles';
+                    case 'related': return 'related_stories';
                     case 'trending': return 'trending';
                     case 'most read': return 'most_read';
                     case 'latest': return 'latest_news';
@@ -32,7 +32,7 @@
                     default: return 'custom_content';
                 }
             }
-            return 'related_articles';
+            return 'related_stories';
         }
 
         // Initialize content loading
@@ -157,7 +157,7 @@
             
             return Array.from({ length: count }, (_, index) => ({
                 title: sampleTitles[Math.floor(Math.random() * sampleTitles.length)],
-                url: `/news/article-${Date.now()}-${index}`,
+                url: `/news/story-${Date.now()}-${index}`,
                 category: sampleCategories[Math.floor(Math.random() * sampleCategories.length)],
                 time: `${Math.floor(Math.random() * 12) + 1} hr${Math.floor(Math.random() * 12) + 1 === 1 ? '' : 's'} ago`,
                 image: `https://via.placeholder.com/80x60/cccccc/666666?text=News`
@@ -188,10 +188,10 @@
 
         // Create item element
         function createItemElement(item) {
-            const article = document.createElement('article');
-            article.className = 'bbc-sidebar-content__item';
+            const item = document.createElement('div');
+            item.className = 'bbc-sidebar-content__item';
 
-            article.innerHTML = `
+            item.innerHTML = `
                     ${item.image ? `
                         <div class="bbc-sidebar-content__item-image">
                             <img src="${item.image}" alt="${item.title}" loading="lazy" class="bbc-sidebar-content__image">
@@ -208,7 +208,7 @@
                 </a>
             `;
 
-            return article;
+            return item;
         }
 
         // Show loading state

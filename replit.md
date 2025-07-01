@@ -143,6 +143,11 @@ Components integrate with CMS platforms through:
   - Created missing fragment.json files for all fragments with proper paths
   - Cleaned up HTML spacing and attribute formatting
   - Updated deployment packages with corrected fragment structure
+- July 01, 2025. Removed article elements causing metadata injection:
+  - Replaced all <article> elements with <div> elements to prevent Liferay metadata injection
+  - Updated CSS selectors to target div elements instead of article elements
+  - Fixed JavaScript references to remove article-specific code
+  - Created clean deployment packages without article elements
 
 ## User Preferences
 
