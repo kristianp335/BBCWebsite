@@ -1,58 +1,35 @@
-<div class="bbc-fragment bbc-live-content" >
- <div class="bbc-live-content__container">
- <!-- Background Image -->
- <div class="bbc-live-content__background" style="background-image: url('');">
- <div class="bbc-live-content__overlay"></div>
- </div>
- <!-- Live Content Header -->
- <div class="bbc-live-content__header">
- <div class="bbc-live-content__status">
- <div class="bbc-live-indicator bbc-live-content__indicator">
- LIVE
- </div>
- <div class="bbc-live-content__viewers" 
- <svg class="bbc-live-content__viewers-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
- <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
- </svg>
- <span class="bbc-live-content__viewers-count">Loading...</span>
- </div>
- <button class="bbc-live-content__notify-btn" >
- <svg class="bbc-live-content__notify-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
- <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
- </svg>
- </button>
- </div>
- <div class="bbc-live-content__category">
- <span class="bbc-label" data-lfr-editable-id="category" data-lfr-editable-type="text"></span>
- </div>
- </div>
- <!-- Live Content Body -->
- <div class="bbc-live-content__body">
- <a href="" class="bbc-live-content__link" >
- <h2 class="bbc-headline bbc-headline--medium bbc-live-content__title" data-lfr-editable-id="title" data-lfr-editable-type="text">
- </h2>
- <p class="bbc-body-text bbc-live-content__description" data-lfr-editable-id="description" data-lfr-editable-type="text">
- </p>
- </a>
- <!-- Live Updates Preview -->
- <div class="bbc-live-content__updates" 
- <div class="bbc-live-content__updates-loading">
- <div class="bbc-live-content__loading-spinner"></div>
- <span>Loading latest updates...</span>
- </div>
- </div>
- </div>
- <!-- Live Content Footer -->
- <div class="bbc-live-content__footer">
- <div class="bbc-live-content__timestamp" 
- Last updated: <time>Loading...</time>
- </div>
- <a href="" class="bbc-button bbc-live-content__view-btn" >
- Follow Live
- <svg class="bbc-live-content__arrow" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
- <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
- </svg>
- </a>
- </div>
- </div>
+<div class="bbc-live-content">
+  <div class="bbc-live-content__header">
+    <div class="bbc-live-indicator">LIVE</div>
+    <h2 class="bbc-live-content__title" data-lfr-editable-id="liveTitle" data-lfr-editable-type="text">Live Updates</h2>
+    <p class="bbc-live-content__description" data-lfr-editable-id="liveDescription" data-lfr-editable-type="text">
+      Follow live updates on this breaking news story.
+    </p>
+    <#if showViewerCount>
+      <div class="bbc-live-content__viewers">
+        <span class="bbc-live-content__viewer-count">1,234</span> watching
+      </div>
+    </#if>
+  </div>
+  <div class="bbc-live-content__updates">
+    <div class="bbc-live-content__update">
+      <time class="bbc-live-content__time" data-lfr-editable-id="updateTime1" data-lfr-editable-type="text">14:30</time>
+      <div class="bbc-live-content__update-content">
+        <h3 data-lfr-editable-id="updateTitle1" data-lfr-editable-type="text">Latest Update</h3>
+        <p data-lfr-editable-id="updateContent1" data-lfr-editable-type="text">Update content goes here. This can be edited directly in the page editor.</p>
+      </div>
+    </div>
+    <div class="bbc-live-content__update">
+      <time class="bbc-live-content__time" data-lfr-editable-id="updateTime2" data-lfr-editable-type="text">14:15</time>
+      <div class="bbc-live-content__update-content">
+        <h3 data-lfr-editable-id="updateTitle2" data-lfr-editable-type="text">Previous Update</h3>
+        <p data-lfr-editable-id="updateContent2" data-lfr-editable-type="text">Previous update content goes here.</p>
+      </div>
+    </div>
+  </div>
+  <#if enableNotifications>
+    <div class="bbc-live-content__notifications">
+      <button class="bbc-live-content__notify-button">Get notifications</button>
+    </div>
+  </#if>
 </div>

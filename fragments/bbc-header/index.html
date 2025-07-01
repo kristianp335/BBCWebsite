@@ -1,69 +1,22 @@
-<div class="bbc-fragment bbc-header" >
- <div class="bbc-container">
- <div class="bbc-header__content">
- <!-- Logo -->
- <div class="bbc-header__logo">
- <a href="" class="bbc-header__logo-link" >
- <span class="bbc-header__logo-text" data-lfr-editable-id="logoText" data-lfr-editable-type="text"></span>
- </a>
- </div>
- <!-- Main Navigation -->
- <nav class="bbc-header__nav" role="navigation" aria-label="Main navigation">
- <ul class="bbc-nav bbc-header__nav-list">
- <#assign navItems = navigationItems?eval>
- <#list navItems as item>
- <li class="bbc-nav__item">
- <a href="" class="bbc-nav__link" >
- </a>
- </li>
- </#list>
- </ul>
- </nav>
- <!-- Search -->
- <div class="bbc-header__search">
- <form class="bbc-search-form" aria-label="Site search">
- <div class="bbc-search-form__input-group">
- <input 
- type="search" 
- class="bbc-search-form__input" 
- placeholder="Search BBC"
- data-lfr-editable-id="searchPlaceholder"
- data-lfr-editable-type="text" 
- aria-label="Search BBC"
- autocomplete="off"
->
- <button type="submit" class="bbc-search-form__button" aria-label="Search">
- <svg class="bbc-search-form__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
- <circle cx="11" cy="11" r="8"></circle>
- <path d="m21 21-4.35-4.35"></path>
- </svg>
- </button>
- </div>
- </form>
- </div>
- <!-- Mobile Menu Toggle -->
- <button 
- class="bbc-header__mobile-toggle" 
- aria-controls="bbc-mobile-menu"
- aria-expanded="false"
- aria-label="Open mobile menu"
->
- <span class="bbc-header__mobile-toggle-line"></span>
- <span class="bbc-header__mobile-toggle-line"></span>
- <span class="bbc-header__mobile-toggle-line"></span>
- </button>
- </div>
- <!-- Mobile Navigation -->
- <nav id="bbc-mobile-menu" class="bbc-mobile-menu" aria-label="Mobile navigation">
- <ul class="bbc-mobile-menu__list">
- <#assign navItems = navigationItems?eval>
- <#list navItems as item>
- <li class="bbc-mobile-menu__item">
- <a href="" class="bbc-mobile-menu__link" >
- </a>
- </li>
- </#list>
- </ul>
- </nav>
- </div>
+<div class="bbc-header">
+  <div class="bbc-header__container">
+    <div class="bbc-header__brand">
+      <a href="#" class="bbc-header__logo" data-lfr-editable-id="logoLink" data-lfr-editable-type="link">
+        <span class="bbc-header__logo-text" data-lfr-editable-id="logoText" data-lfr-editable-type="text">BBC</span>
+      </a>
+    </div>
+    <nav class="bbc-header__nav">
+      <ul class="bbc-header__nav-list">
+        <li><a href="#" data-lfr-editable-id="navItem1" data-lfr-editable-type="link" data-lfr-editable-id="navItem1Text" data-lfr-editable-type="text">News</a></li>
+        <li><a href="#" data-lfr-editable-id="navItem2" data-lfr-editable-type="link" data-lfr-editable-id="navItem2Text" data-lfr-editable-type="text">Sport</a></li>
+        <li><a href="#" data-lfr-editable-id="navItem3" data-lfr-editable-type="link" data-lfr-editable-id="navItem3Text" data-lfr-editable-type="text">Weather</a></li>
+      </ul>
+    </nav>
+    <#if showSearch>
+      <div class="bbc-header__search">
+        <input type="search" placeholder="Search BBC" class="bbc-header__search-input">
+        <button class="bbc-header__search-button" aria-label="Search">🔍</button>
+      </div>
+    </#if>
+  </div>
 </div>

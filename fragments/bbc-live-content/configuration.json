@@ -1,3 +1,22 @@
 {
-  "fieldSets": []
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "enableNotifications",
+          "label": "Enable Notifications",
+          "description": "Allow push notifications for live updates",
+          "type": "checkbox",
+          "defaultValue": false
+        },
+        {
+          "name": "showViewerCount",
+          "label": "Show Viewer Count",
+          "description": "Display live viewer count",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }

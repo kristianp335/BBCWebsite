@@ -1,3 +1,36 @@
 {
-  "fieldSets": []
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "cardSize",
+          "label": "Card Size",
+          "description": "Size of the podcast card",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {"value": "small", "label": "Small"},
+              {"value": "medium", "label": "Medium"},
+              {"value": "large", "label": "Large"}
+            ]
+          },
+          "defaultValue": "medium"
+        },
+        {
+          "name": "showSaveButton",
+          "label": "Show Save Button",
+          "description": "Display save episode button",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showShareButton",
+          "label": "Show Share Button",
+          "description": "Display share episode button",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }

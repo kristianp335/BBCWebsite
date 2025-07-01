@@ -1,3 +1,36 @@
 {
-  "fieldSets": []
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showCaptions",
+          "label": "Show Captions",
+          "description": "Enable caption support",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "autoPlay",
+          "label": "Auto Play",
+          "description": "Auto play video on load",
+          "type": "checkbox",
+          "defaultValue": false
+        },
+        {
+          "name": "playerSize",
+          "label": "Player Size",
+          "description": "Size of the video player",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {"value": "small", "label": "Small"},
+              {"value": "medium", "label": "Medium"},
+              {"value": "large", "label": "Large"}
+            ]
+          },
+          "defaultValue": "medium"
+        }
+      ]
+    }
+  ]
 }

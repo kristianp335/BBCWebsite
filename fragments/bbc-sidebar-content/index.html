@@ -1,96 +1,33 @@
-<aside class="bbc-fragment bbc-sidebar-content" role="complementary" >
- <div class="bbc-sidebar-content__container">
- <!-- Sidebar Header -->
- <header class="bbc-sidebar-content__header">
- <h2 class="bbc-sidebar-content__title"></h2>
- <div class="bbc-sidebar-content__type-indicator">
- <span class="bbc-label">
- <#switch contentType>
- <#case "related_articles">Related<#break>
- <#case "trending">Trending<#break>
- <#case "most_read">Most Read<#break>
- <#case "latest_news">Latest<#break>
- <#case "weather_widget">Weather<#break>
- <#default>Content
- </#switch>
- </span>
- </div>
- </header>
- <!-- Content Items -->
- <div class="bbc-sidebar-content__items" 
- <#assign items = contentItems?eval>
- <#assign itemLimit = (maxItems!'5')?number>
- <#list items as item>
- <div class="bbc-sidebar-content__item" >
- <a href="" class="bbc-sidebar-content__item-link" >
- <!-- Item Image -->
- <div class="bbc-sidebar-content__item-image">
- <img src="" alt="" loading="lazy" class="bbc-sidebar-content__image">
- </div>
- <!-- Item Content -->
- <div class="bbc-sidebar-content__item-content">
- <!-- Item Meta -->
- <div class="bbc-sidebar-content__item-meta">
- <span class="bbc-label bbc-sidebar-content__category"></span>
- <time class="bbc-sidebar-content__time"></time>
- </div>
- <!-- Item Title -->
- <h3 class="bbc-sidebar-content__item-title">
- </h3>
- <!-- Item Description -->
- <p class="bbc-sidebar-content__item-description">
- </p>
- </div>
- </a>
- </div>
- </#list>
- <!-- Loading placeholder -->
- <div class="bbc-sidebar-content__loading" style="display: none;">
- <div class="bbc-sidebar-content__loading-item">
- <div class="bbc-sidebar-content__loading-image"></div>
- <div class="bbc-sidebar-content__loading-content">
- <div class="bbc-sidebar-content__loading-title"></div>
- <div class="bbc-sidebar-content__loading-meta"></div>
- </div>
- </div>
- </div>
- </div>
- <!-- Load More Button -->
- <div class="bbc-sidebar-content__actions">
- <button class="bbc-button bbc-sidebar-content__load-more" 
- Load More
- <svg class="bbc-sidebar-content__load-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
- <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"/>
- </svg>
- </button>
- </div>
- <!-- Weather Widget (if content type is weather) -->
- <div class="bbc-sidebar-content__weather-widget" 
- <div class="bbc-weather-widget">
- <div class="bbc-weather-widget__header">
- <h3 class="bbc-weather-widget__title">Weather</h3>
- <button class="bbc-weather-widget__location-btn" >
- <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
- <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
- </svg>
- London
- </button>
- </div>
- <div class="bbc-weather-widget__current">
- <div class="bbc-weather-widget__temp">22°C</div>
- <div class="bbc-weather-widget__condition">Partly Cloudy</div>
- </div>
- <div class="bbc-weather-widget__forecast">
- <div class="bbc-weather-widget__day">
- <span class="bbc-weather-widget__day-name">Today</span>
- <span class="bbc-weather-widget__day-temp">24° / 16°</span>
- </div>
- <div class="bbc-weather-widget__day">
- <span class="bbc-weather-widget__day-name">Tomorrow</span>
- <span class="bbc-weather-widget__day-temp">26° / 18°</span>
- </div>
- </div>
- </div>
- </div>
- </div>
+<aside class="bbc-sidebar-content" role="complementary">
+  <div class="bbc-sidebar-content__container">
+    <h2 class="bbc-sidebar-content__title" data-lfr-editable-id="sidebarTitle" data-lfr-editable-type="text">Related Stories</h2>
+    <div class="bbc-sidebar-content__list">
+      <div class="bbc-sidebar-content__item">
+        <#if showImages>
+          <img src="https://via.placeholder.com/80x60/333/fff?text=Image" 
+               alt="Story image" 
+               class="bbc-sidebar-content__image"
+               data-lfr-editable-id="storyImage1"
+               data-lfr-editable-type="image">
+        </#if>
+        <div class="bbc-sidebar-content__content">
+          <h3><a href="#" data-lfr-editable-id="storyLink1" data-lfr-editable-type="link" data-lfr-editable-id="storyTitle1" data-lfr-editable-type="text">Story Title 1</a></h3>
+          <p data-lfr-editable-id="storyDescription1" data-lfr-editable-type="text">Story description goes here.</p>
+        </div>
+      </div>
+      <div class="bbc-sidebar-content__item">
+        <#if showImages>
+          <img src="https://via.placeholder.com/80x60/333/fff?text=Image" 
+               alt="Story image" 
+               class="bbc-sidebar-content__image"
+               data-lfr-editable-id="storyImage2"
+               data-lfr-editable-type="image">
+        </#if>
+        <div class="bbc-sidebar-content__content">
+          <h3><a href="#" data-lfr-editable-id="storyLink2" data-lfr-editable-type="link" data-lfr-editable-id="storyTitle2" data-lfr-editable-type="text">Story Title 2</a></h3>
+          <p data-lfr-editable-id="storyDescription2" data-lfr-editable-type="text">Story description goes here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </aside>

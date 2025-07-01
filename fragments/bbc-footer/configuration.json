@@ -1,3 +1,15 @@
 {
-  "fieldSets": []
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "showSocialLinks",
+          "label": "Show Social Links",
+          "description": "Display social media links",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }

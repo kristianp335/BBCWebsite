@@ -1,3 +1,22 @@
 {
-  "fieldSets": []
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "stickyHeader",
+          "label": "Sticky Header",
+          "description": "Make header stick to top when scrolling",
+          "type": "checkbox",
+          "defaultValue": true
+        },
+        {
+          "name": "showSearch",
+          "label": "Show Search",
+          "description": "Display search functionality",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-<div class="bbc-news-card">
+<div class="bbc-news-card bbc-news-card--${cardSize!'medium'} bbc-news-card--${layout!'vertical'}">
   <a href="#" data-lfr-editable-id="linkUrl" data-lfr-editable-type="link">
     <div class="bbc-news-card__image-container">
       <img 
@@ -7,6 +7,9 @@
         data-lfr-editable-id="imageUrl"
         data-lfr-editable-type="image"
       >
+      <#if isLive>
+        <div class="bbc-live-indicator bbc-news-card__live">LIVE</div>
+      </#if>
     </div>
     <div class="bbc-news-card__content">
       <div class="bbc-news-card__meta">

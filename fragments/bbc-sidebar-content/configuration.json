@@ -1,3 +1,29 @@
 {
-  "fieldSets": []
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "contentType",
+          "label": "Content Type",
+          "description": "Type of sidebar content to display",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {"value": "related", "label": "Related Stories"},
+              {"value": "trending", "label": "Trending"},
+              {"value": "weather", "label": "Weather Widget"}
+            ]
+          },
+          "defaultValue": "related"
+        },
+        {
+          "name": "showImages",
+          "label": "Show Images",
+          "description": "Display images with content items",
+          "type": "checkbox",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
 }

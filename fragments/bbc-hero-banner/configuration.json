@@ -1,3 +1,41 @@
 {
-  "fieldSets": []
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "textPosition",
+          "label": "Text Position",
+          "description": "Position of the text overlay",
+          "type": "select",
+          "typeOptions": {
+            "validValues": [
+              {"value": "bottom-left", "label": "Bottom Left"},
+              {"value": "bottom-right", "label": "Bottom Right"},
+              {"value": "center", "label": "Center"},
+              {"value": "top-left", "label": "Top Left"},
+              {"value": "top-right", "label": "Top Right"}
+            ]
+          },
+          "defaultValue": "bottom-left"
+        },
+        {
+          "name": "overlayOpacity",
+          "label": "Overlay Opacity",
+          "description": "Background overlay opacity (0-100)",
+          "type": "text",
+          "typeOptions": {
+            "placeholder": "40"
+          },
+          "defaultValue": "40"
+        },
+        {
+          "name": "isLive",
+          "label": "Live Content",
+          "description": "Mark as live content",
+          "type": "checkbox",
+          "defaultValue": false
+        }
+      ]
+    }
+  ]
 }

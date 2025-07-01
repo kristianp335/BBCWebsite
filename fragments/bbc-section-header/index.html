@@ -1,85 +1,26 @@
-<header class="bbc-fragment bbc-section-header bbc-section-header--" >
- <!-- Background Image (for featured style) -->
- <div class="bbc-section-header__background" style="background-image: url('');">
- <div class="bbc-section-header__overlay"></div>
- </div>
- <div class="bbc-container">
- <div class="bbc-section-header__content">
- <!-- Breadcrumbs -->
- <nav class="bbc-section-header__breadcrumbs" aria-label="Breadcrumb navigation">
- <ol class="bbc-breadcrumb-list">
- <#assign breadcrumbItems = breadcrumbs?eval>
- <#list breadcrumbItems as crumb>
- <li class="bbc-breadcrumb-item">
- <a href="" class="bbc-breadcrumb-link" >
- </a>
- <svg class="bbc-breadcrumb-separator" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
- <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
- </svg>
- <#else>
- <span class="bbc-breadcrumb-current" aria-current="page"></span>
- </li>
- </#list>
- </ol>
- </nav>
- <!-- Header Main Content -->
- <div class="bbc-section-header__main">
- <!-- Title and Description -->
- <div class="bbc-section-header__text">
- <h1 class="bbc-section-header__title" data-lfr-editable-id="sectionTitle" data-lfr-editable-type="text">
- </h1>
- <p class="bbc-section-header__description" data-lfr-editable-id="sectionDescription" data-lfr-editable-type="text">
- </p>
- <!-- Last Updated -->
- <div class="bbc-section-header__meta">
- <time class="bbc-section-header__last-updated" datetime="">
- Last updated: 
- </time>
- </div>
- </div>
- <!-- Actions -->
- <div class="bbc-section-header__actions">
- <#assign actions = actionButtons?eval>
- <#list actions as action>
- <button class="bbc-section-header__action-btn bbc-section-header__action-btn--" 
->
- <#switch action.type>
- <#case "follow">
- <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
- <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
- <circle cx="12" cy="7" r="4"/>
- </svg>
- <#break>
- <#case "share">
- <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
- <circle cx="18" cy="5" r="3"/>
- <circle cx="6" cy="12" r="3"/>
- <circle cx="18" cy="19" r="3"/>
- <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
- <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
- </svg>
- <#break>
- <#case "bookmark">
- <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
- <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>
- </svg>
- <#break>
- <#case "notification">
- <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
- <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
- <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
- </svg>
- <#break>
- <#default>
- <svg class="bbc-section-header__action-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
- <circle cx="12" cy="12" r="10"/>
- </svg>
- </#switch>
- <span class="bbc-section-header__action-text"></span>
- </button>
- </#list>
- </div>
- </div>
- </div>
- </div>
+<header class="bbc-section-header bbc-section-header--${headerStyle!'default'}">
+  <div class="bbc-section-header__container">
+    <div class="bbc-section-header__content">
+      <nav class="bbc-section-header__breadcrumbs">
+        <a href="#" data-lfr-editable-id="breadcrumb1" data-lfr-editable-type="link" data-lfr-editable-id="breadcrumb1Text" data-lfr-editable-type="text">Home</a>
+        <span class="bbc-section-header__separator">/</span>
+        <a href="#" data-lfr-editable-id="breadcrumb2" data-lfr-editable-type="link" data-lfr-editable-id="breadcrumb2Text" data-lfr-editable-type="text">News</a>
+        <span class="bbc-section-header__separator">/</span>
+        <span data-lfr-editable-id="currentPage" data-lfr-editable-type="text">Current Section</span>
+      </nav>
+      <h1 class="bbc-section-header__title" data-lfr-editable-id="sectionTitle" data-lfr-editable-type="text">Section Title</h1>
+      <p class="bbc-section-header__description" data-lfr-editable-id="sectionDescription" data-lfr-editable-type="text">
+        Section description goes here. This content can be edited directly in the page editor.
+      </p>
+      <#if showLastUpdated>
+        <div class="bbc-section-header__meta">
+          <time data-lfr-editable-id="lastUpdated" data-lfr-editable-type="text">Last updated: 1 hour ago</time>
+        </div>
+      </#if>
+    </div>
+    <div class="bbc-section-header__actions">
+      <button class="bbc-section-header__action" aria-label="Follow section">Follow</button>
+      <button class="bbc-section-header__action" aria-label="Share section">Share</button>
+    </div>
+  </div>
 </header>
